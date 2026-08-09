@@ -1,0 +1,154 @@
+---
+// Zero-JS Testimonials Section (Exact Reference Image Design + Company Logos + Continuous Auto-Scrolling Cards)
+const reviews = [
+  {
+    id: "atul-kumar",
+    name: "Atul Kumar",
+    role: "Project Coordinator",
+    company: "Livspace",
+    companyLogoSvg: `<svg class="w-3.5 h-3.5 text-rose-500 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`,
+    package: "15 LPA",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+    quote: "The program helped me improve my overall understanding of projects and coordination. The structured learning and practical approach made concepts clear and easy to apply. This support played a role in helping me secure my position at Livspace."
+  },
+  {
+    id: "rohith-daruri",
+    name: "Rohith Daruri",
+    role: "Software Engineer 1",
+    company: "Smarsh",
+    companyLogoSvg: `<svg class="w-3.5 h-3.5 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>`,
+    package: "14.3 LPA",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    quote: "A big part of my learning experience came from the support of my peers and instructors. Working together on projects helped me learn faster and solve problems more effectively. The instructors were always available to guide us and clear doubts whenever needed."
+  },
+  {
+    id: "ravi-raj",
+    name: "Ravi Raj",
+    role: "Software Engineering Specialist",
+    company: "Accenture",
+    companyLogoSvg: `<svg class="w-3.5 h-3.5 text-purple-600 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l12-6L6 6v12z"/></svg>`,
+    package: "14.3 LPA",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+    quote: "Upgrade Infotech's course helped me a lot in building strong technical skills. The curriculum is practical and well-structured, and the mentors are supportive and experienced. I learned real-world tools and concepts that made it easier to land a great job."
+  },
+  {
+    id: "sourav-mazumdar",
+    name: "Sourav Mazumdar",
+    role: "Software Engineer 1",
+    company: "Smarsh",
+    companyLogoSvg: `<svg class="w-3.5 h-3.5 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>`,
+    package: "14 LPA",
+    avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&auto=format&fit=crop&q=80",
+    quote: "Mock interviews and placement drives were game-changers for me. The practice sessions built my confidence and the placement support helped me secure a great job. The mentors guided me every step of the way."
+  },
+  {
+    id: "abhishek-pathode",
+    name: "Abhishek Pathode",
+    role: "SAP FICO Lead",
+    company: "Capgemini",
+    companyLogoSvg: `<svg class="w-3.5 h-3.5 text-cyan-600 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5L18.5 19.5h-13L12 6.5z"/></svg>`,
+    package: "15 LPA",
+    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80",
+    quote: "The curriculum was well-designed and comprehensive. The tools and technologies covered during the course were aligned with industry requirements, which helped me stay confident during interviews. The hands-on live projects made a real difference."
+  },
+  {
+    id: "ananya-deshmukh",
+    name: "Ananya Deshmukh",
+    role: "SAP MM Analyst",
+    company: "TCS",
+    companyLogoSvg: `<svg class="w-3.5 h-3.5 text-blue-700 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v3H4V4zm4 5h8v11H8V9z"/></svg>`,
+    package: "11 LPA",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+    quote: "I transitioned from a non-coding role into SAP consulting in 4 months. The 1-on-1 resume polish and mock technical interviews gave me immense confidence during corporate placement drives."
+  }
+];
+
+const infiniteReviews = [...reviews, ...reviews];
+
+// Schema.org Review Data
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Upgrade Infotech SAP Training",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "2840"
+  }
+};
+---
+
+<section id="testimonials" class="py-14 md:py-20 bg-slate-50/80 border-y border-slate-200/90 relative overflow-hidden" aria-labelledby="testimonials-heading">
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header (Exact Reference Styling) -->
+    <div class="max-w-3xl mx-auto text-center mb-10 md:mb-14">
+      <div class="inline-flex flex-col items-center mb-3">
+        <span class="text-xs font-black tracking-widest uppercase text-heading">
+          OUR TESTIMONIALS
+        </span>
+        <span class="w-7 h-0.5 bg-primary mt-1 rounded-full" aria-hidden="true"></span>
+      </div>
+
+      <h2 id="testimonials-heading" class="text-3xl sm:text-4xl lg:text-[2.65rem] font-black text-heading font-serif tracking-tight leading-tight">
+        <span class="text-primary font-serif">Those Who</span> Acted And Transformed
+      </h2>
+    </div>
+
+    <!-- Continuous Auto-Scrolling Testimonials Track (Pure CSS Infinite Marquee) -->
+    <div class="overflow-hidden relative py-2">
+      <div class="animate-marquee flex gap-5">
+        {infiniteReviews.map((rev) => (
+          <div class="w-[300px] sm:w-[340px] shrink-0 bg-white rounded-3xl border border-slate-200/90 shadow-md shadow-slate-200/40 p-6 flex flex-col justify-between transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-primary/40 relative">
+            
+            <div>
+              <!-- Top Row: Avatar & LinkedIn Badge -->
+              <div class="flex items-center justify-between gap-3 mb-4">
+                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 shadow-xs shrink-0 bg-primary/10 flex items-center justify-center text-primary font-black text-sm">
+                  <img src={rev.avatar} alt={rev.name} class="w-full h-full object-cover" loading="lazy" />
+                </div>
+
+                <!-- LinkedIn Logo Badge -->
+                <a href="#linkedin" aria-label={`${rev.name}'s LinkedIn profile`} class="text-[#0A66C2] hover:opacity-80 transition-opacity">
+                  <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Student Name -->
+              <h3 class="text-base font-black text-heading mb-3">
+                {rev.name}
+              </h3>
+
+              <!-- Company Logo + Name Badge + Package Tag Row -->
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="inline-flex items-center gap-1.5 text-xs font-black text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200/80">
+                  <Fragment set:html={rev.companyLogoSvg} />
+                  <span>{rev.company}</span>
+                </span>
+                <span class="text-xs font-black text-primary bg-primary/10 px-2.5 py-1 rounded-md border border-primary/20">
+                  {rev.package}
+                </span>
+              </div>
+
+              <!-- Job Title -->
+              <p class="text-xs font-extrabold text-heading mb-4">
+                {rev.role}
+              </p>
+
+              <!-- Testimonial Quote -->
+              <p class="text-xs text-body font-normal leading-relaxed border-t border-slate-100 pt-4">
+                {rev.quote}
+              </p>
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

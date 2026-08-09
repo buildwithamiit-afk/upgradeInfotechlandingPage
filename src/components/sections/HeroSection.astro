@@ -1,0 +1,218 @@
+---
+// Zero-JS High-Converting Hero Component with Reference Floating Stats Bar
+---
+
+<section class="relative pt-6 pb-16 md:pt-8 md:pb-20 overflow-hidden bg-gradient-to-b from-primary/5 via-bg-alt to-bg" aria-label="Hero Introduction">
+  <!-- Subtle Background Grid Overlay -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f060_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f060_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Top Centered Urgency Banner Pill -->
+    <div class="flex justify-center mb-5 sm:mb-6">
+      <div class="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/10 via-accent/10 to-amber-500/10 border border-amber-400/40 text-[11px] sm:text-xs font-bold text-heading shadow-xs text-center">
+        <span class="w-2 h-2 rounded-full bg-accent animate-pulse shrink-0" aria-hidden="true"></span>
+        <span class="px-2 py-0.5 rounded-full bg-accent text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider">
+          Monsoon Offer
+        </span>
+        <span class="font-bold text-heading">
+          Only <strong class="text-accent font-black text-xs sm:text-sm">4 seats left</strong> in this batch
+        </span>
+      </div>
+    </div>
+
+    <!-- Main 2-Column Hero Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-10 sm:mb-12 lg:mb-16">
+      
+      <!-- Left Column: Copy, Headlines, Trust Badges & Action Buttons -->
+      <div class="lg:col-span-7 space-y-3.5 sm:space-y-4 text-left">
+        
+        <!-- Pre-heading Tagline -->
+        <div class="text-[11px] sm:text-xs font-extrabold tracking-wider text-primary uppercase">
+          SAP AUTHORISED TRAINING PARTNER · MUMBAI
+        </div>
+
+        <!-- Main H1 Heading -->
+        <h1 class="text-2xl sm:text-4xl lg:text-[2.75rem] font-black text-heading tracking-tight leading-[1.2]">
+          Best SAP Training Institute in Andheri, Mumbai <span class="bg-gradient-to-r from-accent to-amber-500 bg-clip-text text-transparent">with 100% Placement Assistance</span>
+        </h1>
+
+        <!-- Clear Readable Subheading Copy -->
+        <p class="text-xs sm:text-base text-body font-normal leading-relaxed max-w-2xl">
+          Learn SAP FICO, MM, SD, HR & ABAP from certified, currently-practising SAP consultants. Classroom in Andheri, Ghatkopar, Vashi or Live Online. Real projects, real placements.
+        </p>
+
+        <!-- Trust Badges Row -->
+        <div class="space-y-2 pt-1 text-xs font-semibold text-heading">
+          <div class="flex flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-1.5">
+            <div class="flex items-center gap-1.5 text-accent font-bold">
+              <span>★</span>
+              <span class="text-heading font-semibold">12+ Years of Training Excellence</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-accent font-bold">
+              <span>★</span>
+              <span class="text-heading font-semibold">4.8★ Google Rating (380+ Reviews)</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 text-primary font-bold">
+            <span class="text-sm">💳</span>
+            <span>No-Cost EMI Available</span>
+          </div>
+        </div>
+
+        <!-- Left Action Buttons -->
+        <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
+          <a
+            href="#enroll"
+            class="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-7 py-2.5 text-sm font-extrabold text-white bg-accent hover:bg-accent-hover active:bg-accent rounded-xl shadow-md shadow-accent/20 transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            Check My Eligibility →
+          </a>
+
+          <a
+            href="#curriculum"
+            class="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-6 py-2.5 text-sm font-bold text-heading bg-white hover:bg-bg-alt border border-border rounded-xl shadow-xs transition-all focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            View Courses & Fees
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Clean High-Converting Lead Capture Form Card -->
+      <div class="lg:col-span-5">
+        <div id="enroll" class="bg-white text-heading rounded-2xl shadow-xl border border-border overflow-hidden relative">
+          
+          <!-- Top Gradient Accent Line -->
+          <div class="h-1.5 bg-gradient-to-r from-primary via-accent to-primary" aria-hidden="true"></div>
+
+          <!-- Lead Form Body -->
+          <div class="p-4.5 sm:p-6 bg-white">
+            <h2 class="text-lg sm:text-xl font-black text-heading tracking-tight mb-0.5 text-left">
+              Get Your Free Career Roadmap
+            </h2>
+            <p class="text-xs text-body mb-4 text-left">
+              Fees, batch dates & eligibility in one quick call.
+            </p>
+
+            <form action="/api/lead" method="POST" class="space-y-3">
+              <!-- Full Name Input -->
+              <div>
+                <label for="hero-lead-name" class="sr-only">Full Name</label>
+                <input
+                  type="text"
+                  id="hero-lead-name"
+                  name="name"
+                  required
+                  placeholder="Full Name"
+                  class="w-full h-11 sm:h-10 px-3.5 rounded-xl border border-slate-300 text-sm font-medium focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading placeholder:text-body/60"
+                />
+              </div>
+
+              <!-- Mobile Number Input -->
+              <div>
+                <label for="hero-lead-phone" class="sr-only">Mobile Number</label>
+                <input
+                  type="tel"
+                  id="hero-lead-phone"
+                  name="phone"
+                  required
+                  placeholder="Mobile Number"
+                  class="w-full h-11 sm:h-10 px-3.5 rounded-xl border border-slate-300 text-sm font-medium focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading placeholder:text-body/60"
+                />
+              </div>
+
+              <!-- Preferred Location Select -->
+              <div>
+                <label for="hero-lead-location" class="sr-only">Preferred Location</label>
+                <select
+                  id="hero-lead-location"
+                  name="location"
+                  class="w-full h-11 sm:h-10 px-3.5 rounded-xl border border-slate-300 text-sm font-medium focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading cursor-pointer"
+                >
+                  <option value="" disabled selected>Preferred Location</option>
+                  <option value="andheri">Andheri Classroom</option>
+                  <option value="ghatkopar">Ghatkopar Classroom</option>
+                  <option value="vashi">Vashi Classroom</option>
+                  <option value="live-online">Live Online Batch</option>
+                </select>
+              </div>
+
+              <!-- Course Interested In Select -->
+              <div>
+                <label for="hero-lead-course" class="sr-only">Course Interested In</label>
+                <select
+                  id="hero-lead-course"
+                  name="course"
+                  class="w-full h-11 sm:h-10 px-3.5 rounded-xl border border-slate-300 text-sm font-medium focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading cursor-pointer"
+                >
+                  <option value="" disabled selected>Course Interested In</option>
+                  <option value="sap-fico">SAP FICO (Financial & Control)</option>
+                  <option value="sap-mm">SAP MM (Materials Management)</option>
+                  <option value="sap-sd">SAP SD (Sales & Distribution)</option>
+                  <option value="sap-hr">SAP HR / HCM</option>
+                  <option value="sap-abap">SAP ABAP Development</option>
+                  <option value="full-stack">Full-Stack & Cloud Engineering</option>
+                </select>
+              </div>
+
+              <!-- Primary Submit CTA Button -->
+              <button
+                type="submit"
+                class="w-full min-h-[46px] mt-1 px-4 py-2.5 text-sm font-extrabold text-white bg-accent hover:bg-accent-hover active:bg-accent rounded-xl shadow-md shadow-accent/20 hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer transform hover:-translate-y-0.5"
+              >
+                Get Fee Structure →
+              </button>
+            </form>
+
+            <!-- Trust Subtext -->
+            <div class="mt-3 pt-2 border-t border-slate-100 text-[10px] text-center text-body/80 font-medium leading-tight">
+              100% Confidential · No Spam Calls · Call within 30 mins
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Ultra-Compact 100% Responsive Metric Cards Bar -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 max-w-5xl mx-auto relative z-20">
+      
+      <!-- Card 1: Students Trained -->
+      <div class="bg-white p-3.5 sm:p-4.5 rounded-xl sm:rounded-2xl border border-slate-200/90 shadow-md shadow-slate-200/40 text-center transform transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/40">
+        <p class="text-2xl sm:text-3xl font-black text-heading leading-none tracking-tight">
+          2,840<span class="text-accent font-extrabold ml-0.5">+</span>
+        </p>
+        <p class="text-[11px] sm:text-xs font-bold text-body mt-1.5">Students Trained</p>
+      </div>
+
+      <!-- Card 2: Recruiter Partners -->
+      <div class="bg-white p-3.5 sm:p-4.5 rounded-xl sm:rounded-2xl border border-slate-200/90 shadow-md shadow-slate-200/40 text-center transform transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/40">
+        <p class="text-2xl sm:text-3xl font-black text-heading leading-none tracking-tight">
+          320<span class="text-accent font-extrabold ml-0.5">+</span>
+        </p>
+        <p class="text-[11px] sm:text-xs font-bold text-body mt-1.5">Recruiter Partners</p>
+      </div>
+
+      <!-- Card 3: Placement Rate -->
+      <div class="bg-white p-3.5 sm:p-4.5 rounded-xl sm:rounded-2xl border border-slate-200/90 shadow-md shadow-slate-200/40 text-center transform transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/40">
+        <p class="text-2xl sm:text-3xl font-black text-heading leading-none tracking-tight">
+          94%
+        </p>
+        <p class="text-[11px] sm:text-xs font-bold text-body mt-1.5">Placement Rate</p>
+      </div>
+
+      <!-- Card 4: Years Experience -->
+      <div class="bg-white p-3.5 sm:p-4.5 rounded-xl sm:rounded-2xl border border-slate-200/90 shadow-md shadow-slate-200/40 text-center transform transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/40">
+        <p class="text-2xl sm:text-3xl font-black text-heading leading-none tracking-tight">
+          12<span class="text-accent font-extrabold ml-0.5">+</span>
+        </p>
+        <p class="text-[11px] sm:text-xs font-bold text-body mt-1.5">Years Experience</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,232 @@
+---
+// Zero-JS Fees & Batches Section (Ultra-Compact Symmetrical Layout, Zero Unnecessary Whitespace)
+const modules = [
+  {
+    name: "SAP FICO",
+    finalPrice: "₹65,000",
+    filledPercentage: 84,
+    seatsLeft: 4
+  },
+  {
+    name: "SAP MM",
+    finalPrice: "₹60,000",
+    filledPercentage: 75,
+    seatsLeft: 6
+  },
+  {
+    name: "SAP SD",
+    finalPrice: "₹60,000",
+    filledPercentage: 70,
+    seatsLeft: 7
+  },
+  {
+    name: "SAP HR / SuccessFactors",
+    finalPrice: "₹58,000",
+    filledPercentage: 65,
+    seatsLeft: 8
+  },
+  {
+    name: "SAP ABAP",
+    finalPrice: "₹70,000",
+    filledPercentage: 88,
+    seatsLeft: 3
+  },
+  {
+    name: "SAP BASIS",
+    finalPrice: "₹58,000",
+    filledPercentage: 60,
+    seatsLeft: 9
+  }
+];
+
+const highlights = [
+  "✓ No-Cost EMI available on all modules",
+  "✓ Education loan tie-up options",
+  "✓ Free repeat batch if you miss a session",
+  "✓ Group discount for 2+ enrolments"
+];
+---
+
+<section id="pricing" class="py-12 md:py-16 bg-slate-50/80 border-y border-slate-200/90 relative overflow-hidden" aria-labelledby="pricing-heading">
+  
+  <!-- Ambient Soft Glow Overlay -->
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[550px] bg-primary/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- 1. Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-8 md:mb-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-extrabold text-primary uppercase tracking-widest mb-2.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary" aria-hidden="true"></span>
+        FEES & BATCHES
+      </div>
+      <h2 id="pricing-heading" class="text-3xl sm:text-4xl lg:text-[2.5rem] font-black text-heading font-serif tracking-tight leading-tight">
+        Transparent fees. Flexible payment. No surprises.
+      </h2>
+    </div>
+
+    <!-- 2. Two-Column Ultra-Compact Balanced Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      
+      <!-- LEFT COLUMN (7 Cols): Ultra-Compact 6 Course Cards Grid + Secondary Link -->
+      <div class="lg:col-span-7 bg-white rounded-3xl border border-slate-200/90 p-4 sm:p-5 shadow-sm">
+        
+        <!-- 6 Compact Module Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3.5">
+          {modules.map((card) => (
+            <div class="bg-slate-50/70 rounded-xl border border-slate-200/80 p-3.5 flex flex-col justify-between transform transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-white hover:shadow-sm">
+              <div>
+                <h3 class="text-xs sm:text-sm font-black text-heading mb-0.5">
+                  {card.name}
+                </h3>
+                
+                <div class="mb-2">
+                  <span class="text-xl sm:text-2xl font-black text-primary tracking-tight leading-none">
+                    {card.finalPrice}
+                  </span>
+                </div>
+
+                <!-- Seat Availability Bar -->
+                <div class="bg-white p-1.5 rounded-lg border border-slate-200/70 mb-2">
+                  <div class="flex items-center justify-between text-[10px] font-extrabold mb-0.5">
+                    <span class="text-amber-600">Only {card.seatsLeft} seats left</span>
+                    <span class="text-slate-500">{card.filledPercentage}% filled</span>
+                  </div>
+                  <div class="w-full h-1 bg-slate-200 rounded-full overflow-hidden">
+                    <div 
+                      class="h-full bg-gradient-to-r from-primary to-accent rounded-full"
+                      style={`width: ${card.filledPercentage}%`}
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-1.5 border-t border-slate-200/60 flex items-center justify-between text-[10px] font-bold text-slate-500">
+                <span>Flexible Monthly EMI</span>
+                <span class="text-emerald-600 font-extrabold">From ₹3,999/mo</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Secondary Link (Get Full Fee Structure & Batch Calendar →) -->
+        <div class="pt-2 text-center sm:text-left border-t border-slate-100">
+          <a
+            href="#enroll"
+            class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-primary hover:text-primary-hover transition-colors"
+          >
+            <span>Get Full Fee Structure & Batch Calendar</span>
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN (5 Cols): Light White Monsoon Offer Container (Tight & Zero Unnecessary Whitespace) -->
+      <div class="lg:col-span-5 bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
+        
+        <!-- Top Soft Gradient Glow -->
+        <div class="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
+
+        <div class="relative z-10">
+          
+          <!-- Offer Header Badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 text-[11px] font-black uppercase tracking-wider mb-2.5">
+            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+            Monsoon Offer ends in
+          </div>
+
+          <h3 class="text-lg sm:text-xl font-black text-heading mb-1 tracking-tight">
+            Monsoon Special Offer
+          </h3>
+          <p class="text-xs text-emerald-600 font-black mb-3.5 flex items-center gap-1">
+            <span>🎉</span> Enroll today & Get 20% OFF
+          </p>
+
+          <!-- Countdown Timer 4 Light Digits Grid -->
+          <div class="grid grid-cols-4 gap-2 mb-4">
+            <div class="bg-slate-50 rounded-xl p-2.5 text-center border border-slate-200/80">
+              <span id="countdown-days" class="text-xl sm:text-2xl font-black text-heading leading-none block">03</span>
+              <span class="text-[9px] font-extrabold text-slate-500 uppercase tracking-widest block mt-1">DAYS</span>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-2.5 text-center border border-slate-200/80">
+              <span id="countdown-hrs" class="text-xl sm:text-2xl font-black text-heading leading-none block">09</span>
+              <span class="text-[9px] font-extrabold text-slate-500 uppercase tracking-widest block mt-1">HRS</span>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-2.5 text-center border border-slate-200/80">
+              <span id="countdown-min" class="text-xl sm:text-2xl font-black text-heading leading-none block">06</span>
+              <span class="text-[9px] font-extrabold text-slate-500 uppercase tracking-widest block mt-1">MIN</span>
+            </div>
+            <div class="bg-amber-50 rounded-xl p-2.5 text-center border border-amber-200">
+              <span id="countdown-sec" class="text-xl sm:text-2xl font-black text-amber-600 leading-none block">21</span>
+              <span class="text-[9px] font-extrabold text-amber-700 uppercase tracking-widest block mt-1">SEC</span>
+            </div>
+          </div>
+
+          <!-- Value Checkmarks List -->
+          <ul class="space-y-2 text-xs font-bold text-slate-700 mb-4">
+            {highlights.map((item) => (
+              <li class="flex items-center gap-2 bg-slate-50 p-2 rounded-xl border border-slate-200/60">
+                <span class="text-emerald-500 font-extrabold shrink-0">✓</span>
+                <span>{item.replace('✓ ', '')}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Primary Action CTA Button & Trust Subtext (Tightly Bonded) -->
+          <div class="pt-1">
+            <a
+              href="#enroll"
+              class="w-full inline-flex items-center justify-center min-h-[46px] px-6 py-3 text-sm font-extrabold text-white bg-accent hover:bg-accent-hover active:bg-accent rounded-xl shadow-md shadow-accent/20 transition-all transform hover:-translate-y-0.5 text-center cursor-pointer"
+            >
+              Lock My Seat at This Price
+            </a>
+            <p class="text-[10px] text-center text-slate-500 font-medium mt-2">
+              ⚡ Instant Seat Lock • 100% Confidential Counselling
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Real-Time Countdown Script -->
+<script is:inline>
+  (function() {
+    let days = 3, hrs = 9, min = 6, sec = 21;
+    const daysEl = document.getElementById('countdown-days');
+    const hrsEl = document.getElementById('countdown-hrs');
+    const minEl = document.getElementById('countdown-min');
+    const secEl = document.getElementById('countdown-sec');
+
+    if (!secEl) return;
+
+    setInterval(function() {
+      if (sec > 0) {
+        sec--;
+      } else {
+        sec = 59;
+        if (min > 0) {
+          min--;
+        } else {
+          min = 59;
+          if (hrs > 0) {
+            hrs--;
+          } else {
+            hrs = 23;
+            if (days > 0) days--;
+          }
+        }
+      }
+      if (secEl) secEl.textContent = sec < 10 ? '0' + sec : sec;
+      if (minEl) minEl.textContent = min < 10 ? '0' + min : min;
+      if (hrsEl) hrsEl.textContent = hrs < 10 ? '0' + hrs : hrs;
+      if (daysEl) daysEl.textContent = days < 10 ? '0' + days : days;
+    }, 1000);
+  })();
+</script>

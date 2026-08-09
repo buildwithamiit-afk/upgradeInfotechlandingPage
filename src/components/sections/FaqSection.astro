@@ -1,0 +1,104 @@
+---
+// Masterclass Zero-JS Centered FAQ Component with JSON-LD FAQ Schema
+const faqs = [
+  {
+    q: "What is the difference between SAP ECC and SAP S/4HANA training?",
+    a: "SAP ECC is the legacy ERP system, whereas SAP S/4HANA is SAP's next-generation in-memory ERP suite with real-time analytics and modern Fiori UX. At Upgrade Infotech, we train you directly on live SAP S/4HANA ERP servers so you are 100% prepared for modern enterprise job roles."
+  },
+  {
+    q: "Can I learn SAP without a technical/programming background?",
+    a: "Yes, absolutely! Functional SAP modules like SAP FICO, SAP MM, SAP SD, and SAP HR / SuccessFactors require zero coding background and are ideal for finance, commerce, management, and non-tech graduates. Technical modules like SAP ABAP start from core programming fundamentals."
+  },
+  {
+    q: "Is the certificate recognised internationally?",
+    a: "Yes! Upgrade Infotech's certification and global SAP exam preparation align with international SAP standards, enabling our alumni to land roles at top MNCs in India, UAE, USA, UK, and across global tech hubs."
+  },
+  {
+    q: "What happens if I miss a class?",
+    a: "You get FREE access to repeat batches, session backup recordings, and 1-on-1 doubt clearing support with your certified SAP trainer at any of our Andheri, Ghatkopar, or Vashi centers, or live online."
+  },
+  {
+    q: "Do you offer EMI or an education loan tie-up?",
+    a: "Yes! We offer flexible No-Cost EMI options starting from ₹3,999/month and have direct education loan tie-up options with leading banking partners for hassle-free 0% interest installments."
+  },
+  {
+    q: "What is your refund/cancellation policy?",
+    a: "We maintain 100% transparent admission and batch scheduling policies. You can attend our initial orientation & trial session to experience the training quality firsthand before committing to your batch seat lock."
+  }
+];
+
+// FAQ Schema (JSON-LD) for Search Engine Rich Snippets
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+---
+
+<section id="faq" class="py-14 md:py-20 bg-slate-50/80 border-y border-slate-200/90 relative overflow-hidden" aria-labelledby="faq-heading">
+  
+  <!-- JSON-LD FAQ Schema for Google Rich Results -->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Soft Ambient Glow Overlay -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- 1. Centered Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-10 md:mb-14">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-extrabold text-primary uppercase tracking-widest mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary" aria-hidden="true"></span>
+        FAQ
+      </div>
+      <h2 id="faq-heading" class="text-3xl sm:text-4xl lg:text-[2.65rem] font-black text-heading font-serif tracking-tight leading-tight">
+        Questions you might have
+      </h2>
+    </div>
+
+    <!-- 2. Clean Stacked Accordions List -->
+    <div class="max-w-3xl mx-auto space-y-3.5">
+      {faqs.map((faq) => (
+        <details class="group bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-md [&_summary::-webkit-details-marker]:hidden">
+          
+          <!-- Accordion Question Header -->
+          <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer select-none gap-4">
+            <h3 class="text-sm sm:text-base font-black text-heading group-hover:text-primary transition-colors tracking-tight">
+              {faq.q}
+            </h3>
+            
+            <!-- Chevron Circle Icon -->
+            <div class="w-8 h-8 rounded-full bg-slate-100 group-open:bg-primary group-open:text-white text-slate-500 flex items-center justify-center shrink-0 transition-colors">
+              <svg class="w-4 h-4 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+          </summary>
+
+          <!-- Accordion Answer Body -->
+          <div class="px-5 sm:px-6 pb-5 pt-3 border-t border-slate-100 bg-slate-50/60">
+            <p class="text-xs sm:text-sm text-body font-medium leading-relaxed">
+              {faq.a}
+            </p>
+          </div>
+
+        </details>
+      ))}
+    </div>
+
+    <!-- 3. Bottom Helpline Subtext -->
+    <div class="mt-10 text-center">
+      <p class="text-xs sm:text-sm text-slate-500 font-medium">
+        Still have questions? Call our counsellors at <a href="tel:+917021348186" class="font-extrabold text-primary hover:underline">+91-7021348186</a> or email <a href="mailto:info@upgradeinfotech.com" class="font-extrabold text-primary hover:underline">info@upgradeinfotech.com</a>
+      </p>
+    </div>
+
+  </div>
+</section>

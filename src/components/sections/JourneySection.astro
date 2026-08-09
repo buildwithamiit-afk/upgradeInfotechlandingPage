@@ -1,0 +1,135 @@
+---
+// Zero-JS The Journey Section (Exact Reference 2-Column Split: 3 Step Cards + Request Callback Button + OR Divider + Classroom Media Card)
+const steps = [
+  {
+    number: "1",
+    title: "01 Learn",
+    description: "Join classroom sessions in Andheri, Ghatkopar or Vashi or live online with certified SAP trainers.",
+    iconBg: "bg-blue-50 text-blue-600 border-blue-100",
+    iconSvg: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>`
+  },
+  {
+    number: "2",
+    title: "02 Practice",
+    description: "Work on real, ticket-based project scenarios and mock certification assessments.",
+    iconBg: "bg-orange-50 text-orange-600 border-orange-100",
+    iconSvg: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>`
+  },
+  {
+    number: "3",
+    title: "03 Get Placed",
+    description: "Our placement team supports you with interviews until you land your first SAP role.",
+    iconBg: "bg-emerald-50 text-emerald-600 border-emerald-100",
+    iconSvg: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`
+  }
+];
+---
+
+<section id="journey" class="py-14 md:py-20 bg-slate-50/80 border-y border-slate-200/90 relative overflow-hidden" aria-labelledby="journey-heading">
+  
+  <!-- Ambient Soft Glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- 1. Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-10 md:mb-14">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-extrabold text-primary uppercase tracking-widest mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary" aria-hidden="true"></span>
+        THE JOURNEY
+      </div>
+      <h2 id="journey-heading" class="text-2xl sm:text-4xl lg:text-[2.65rem] font-black text-heading font-serif tracking-tight leading-tight">
+        From classroom to career, in three steps
+      </h2>
+    </div>
+
+    <!-- 2. Exact Reference Split Layout Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center max-w-6xl mx-auto">
+      
+      <!-- LEFT COLUMN (7 Cols): 3 Step Cards + Request Callback Button -->
+      <div class="lg:col-span-7 flex flex-col gap-4 sm:gap-5">
+        
+        <!-- 3 Step Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
+          {steps.map((step) => (
+            <div class="bg-white rounded-3xl border border-slate-200/90 shadow-md shadow-slate-200/30 p-4.5 sm:p-5 flex flex-col justify-between transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/40 min-h-[160px] sm:min-h-[220px]">
+              
+              <div>
+                <!-- Top Row: Light Icon Box & Faded Step Number -->
+                <div class="flex items-center justify-between mb-3 sm:mb-4">
+                  <div class={`w-10 h-10 sm:w-11 sm:h-11 rounded-2xl ${step.iconBg} border flex items-center justify-center shrink-0`}>
+                    <Fragment set:html={step.iconSvg} />
+                  </div>
+                  <span class="text-2xl sm:text-4xl font-black text-blue-200/80 font-serif">
+                    {step.number}
+                  </span>
+                </div>
+
+                <!-- Title -->
+                <h3 class="text-base font-black text-heading mb-1.5 sm:mb-2 tracking-tight">
+                  {step.title}
+                </h3>
+
+                <!-- Description -->
+                <p class="text-xs text-body font-medium leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+
+            </div>
+          ))}
+        </div>
+
+        <!-- Full-Width Request a Callback Button (Matching Reference Image) -->
+        <a
+          href="#enroll"
+          class="w-full inline-flex items-center justify-center min-h-[48px] sm:min-h-[50px] px-6 py-3 text-sm sm:text-base font-extrabold text-primary bg-blue-50/90 hover:bg-primary hover:text-white rounded-2xl border border-blue-200/80 shadow-xs transition-all transform hover:-translate-y-0.5 text-center gap-2 cursor-pointer"
+        >
+          <svg class="w-4.5 h-4.5 sm:w-5 sm:h-5 fill-current shrink-0" viewBox="0 0 24 24">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.27 1.11l-2.37 2.4z"/>
+          </svg>
+          <span>Request a Callback</span>
+        </a>
+
+      </div>
+
+      <!-- CENTER DIVIDER ("OR") -->
+      <div class="hidden lg:flex flex-col items-center justify-center relative self-stretch">
+        <div class="w-px bg-slate-200 h-full absolute inset-y-0"></div>
+        <span class="relative z-10 bg-slate-50 text-slate-400 text-xs font-black px-2 py-1 rounded-full uppercase tracking-widest border border-slate-200">
+          OR
+        </span>
+      </div>
+
+      <!-- RIGHT COLUMN (4 Cols): Classroom Media Card + View All Courses Button -->
+      <div class="lg:col-span-4 h-full flex flex-col">
+        <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative border border-slate-800 flex flex-col justify-end min-h-[260px] sm:min-h-[380px] group">
+          
+          <!-- Real Classroom Live Training Image -->
+          <img 
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format&fit=crop&q=80" 
+            alt="Live SAP Classroom Training Session at Upgrade Infotech Mumbai" 
+            class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+
+          <!-- Gradient Overlay for Readable Overlay Button -->
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent pointer-events-none"></div>
+
+          <!-- Bottom Floating Action Button (View All Courses) -->
+          <div class="relative z-10 p-5 sm:p-6">
+            <a
+              href="#courses"
+              class="w-full inline-flex items-center justify-center min-h-[48px] px-6 py-3.5 text-sm sm:text-base font-extrabold text-white bg-primary hover:bg-primary-hover active:bg-primary rounded-xl shadow-lg shadow-primary/30 transition-all transform hover:-translate-y-0.5 text-center cursor-pointer"
+            >
+              View All Courses
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

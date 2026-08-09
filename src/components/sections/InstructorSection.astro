@@ -1,0 +1,58 @@
+---
+// Zero-JS Instructor Component with SAP Senior Consultants & Mentors
+const instructors = [
+  {
+    name: "Rajesh K. Varma",
+    role: "Senior SAP FICO & S/4HANA Solution Architect",
+    experience: "14+ Years Active SAP Consulting",
+    bio: "Lead SAP Financial Architect having executed 8+ global S/4HANA enterprise implementations across manufacturing & IT MNCs.",
+    tags: ["SAP FICO", "S/4HANA Financials", "Asset Accounting", "Costing"]
+  },
+  {
+    name: "Sunil N. Deshmukh",
+    role: "Lead SAP MM / SD Enterprise Specialist",
+    experience: "11+ Years Industrial SAP Practice",
+    bio: "Certified SAP Logistics consultant specializing in procurement automation, inventory flows, and sales distribution integrations.",
+    tags: ["SAP MM", "SAP SD", "Logistics", "Order-to-Cash"]
+  }
+];
+---
+
+<section class="py-10 md:py-12 bg-bg border-b border-border" aria-labelledby="instructor-heading">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-8">
+      <h2 id="instructor-heading" class="text-xs font-extrabold text-primary uppercase tracking-widest">Practising Industry Experts</h2>
+      <p class="mt-1 text-2xl sm:text-3xl font-extrabold text-heading tracking-tight">
+        Learn Directly from Active Senior SAP Consultants
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+      {instructors.map((inst) => (
+        <div class="p-5 sm:p-6 rounded-2xl bg-bg-alt border border-border flex flex-col justify-between hover:border-primary/40 transition-colors">
+          <div>
+            <div class="flex items-center gap-3.5 mb-3">
+              <div class="w-12 h-12 rounded-xl bg-secondary text-white font-black text-lg flex items-center justify-center shadow-md">
+                {inst.name.split(' ').map(n => n[0]).join('')}
+              </div>
+              <div>
+                <h3 class="text-base sm:text-lg font-extrabold text-heading">{inst.name}</h3>
+                <p class="text-xs font-bold text-primary">{inst.role}</p>
+                <span class="text-[11px] text-body font-medium">{inst.experience}</span>
+              </div>
+            </div>
+            <p class="text-xs text-body leading-relaxed mb-4">{inst.bio}</p>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-border">
+            {inst.tags.map((tag) => (
+              <span class="px-2 py-0.5 text-[11px] font-bold rounded-md bg-white border border-border text-heading">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

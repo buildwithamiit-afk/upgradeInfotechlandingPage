@@ -1,0 +1,106 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = "Upgrade Infotech | Master Full-Stack & Cloud Engineering in 16 Weeks",
+  description = "Transform your career with 100% job-assisted Full-Stack & Cloud Engineering courses at Upgrade Infotech. Learn from industry leads with live hands-on projects.",
+  image = "/og-image.webp",
+  canonicalURL = Astro.url.href,
+} = Astro.props;
+
+// Schema.org Structured Data (Organization + Course)
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Upgrade Infotech",
+  "url": "https://upgradeinfotech.com",
+  "logo": "https://upgradeinfotech.com/favicon.svg",
+  "sameAs": [
+    "https://linkedin.com/company/upgradeinfotech",
+    "https://twitter.com/upgradeinfotech"
+  ],
+  "description": description,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Navi Mumbai",
+    "addressRegion": "Maharashtra",
+    "addressCountry": "IN"
+  }
+};
+
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Full-Stack Software & Cloud Engineering Bootcamp",
+  "description": "Comprehensive 16-week industry-aligned bootcamp with live projects, mentorship, and guaranteed placement support.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Upgrade Infotech",
+    "sameAs": "https://upgradeinfotech.com"
+  },
+  "educationalCredentialAwarded": "Certified Full-Stack Engineer",
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "Online & Hybrid",
+    "duration": "P16W"
+  }
+};
+---
+
+<!usr-html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#4f46e5" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Google Fonts for Reference Serif Typography (Optimized with Preconnect & Display Swap) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+    <!-- Structured Data Scripts -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-indigo-500 selection:text-white flex flex-col justify-between">
+    <!-- Skip to Content for Accessibility 100 -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-md focus:shadow-lg"
+    >
+      Skip to main content
+    </a>
+
+    <slot />
+  </body>
+</html>

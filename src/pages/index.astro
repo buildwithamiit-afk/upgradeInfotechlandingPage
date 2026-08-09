@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+import HeroSection from '../components/sections/HeroSection.astro';
+import FeaturesSection from '../components/sections/FeaturesSection.astro';
+import CurriculumSection from '../components/sections/CurriculumSection.astro';
+import PlacementSection from '../components/sections/PlacementSection.astro';
+import JourneySection from '../components/sections/JourneySection.astro';
+import BenefitsSection from '../components/sections/BenefitsSection.astro';
+import FaqSection from '../components/sections/FaqSection.astro';
+import CtaSection from '../components/sections/CtaSection.astro';
+import ExitModal from '../components/common/ExitModal.astro';
+---
+
+<Layout
+  title="Best SAP Training Institute in Andheri, Mumbai | Upgrade Infotech — 100% Placement"
+  description="Master SAP FICO, MM, SD, HR & ABAP with certified SAP consultants in Andheri, Ghatkopar, Vashi & Live Online. 100% Placement Assistance & No-Cost EMI at Upgrade Infotech."
+>
+  <Header />
+  
+  <main id="main-content" class="flex-grow">
+    <HeroSection />
+    <FeaturesSection />
+    <CurriculumSection />
+    <PlacementSection />
+    <JourneySection />
+    <BenefitsSection />
+    <FaqSection />
+    <CtaSection />
+  </main>
+
+  <Footer />
+  <ExitModal />
+</Layout>

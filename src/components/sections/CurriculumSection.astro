@@ -1,0 +1,153 @@
+---
+// Zero-JS Course Modules Component (Centered Header + Differentiated Section Background)
+const courseModules = [
+  {
+    id: "sap-fico",
+    category: "FINANCE",
+    categoryBadge: "bg-blue-500/10 text-blue-600 border-blue-200/80",
+    title: "SAP FICO",
+    description: "Financial accounting, controlling, asset accounting & reporting on live SAP S/4HANA.",
+    duration: "60 hrs",
+    idealFor: "Finance / Commerce grads",
+    nextBatch: "Andheri · Online"
+  },
+  {
+    id: "sap-mm",
+    category: "LOGISTICS",
+    categoryBadge: "bg-emerald-500/10 text-emerald-600 border-emerald-200/80",
+    title: "SAP MM",
+    description: "Procurement, inventory management & materials planning end-to-end.",
+    duration: "55 hrs",
+    idealFor: "Supply chain / ops",
+    nextBatch: "Ghatkopar · Online"
+  },
+  {
+    id: "sap-sd",
+    category: "SALES",
+    categoryBadge: "bg-amber-500/10 text-amber-600 border-amber-200/80",
+    title: "SAP SD",
+    description: "Order-to-cash cycle, pricing, billing & sales reporting.",
+    duration: "55 hrs",
+    idealFor: "Sales / commerce grads",
+    nextBatch: "Vashi · Online"
+  },
+  {
+    id: "sap-hr",
+    category: "PEOPLE",
+    categoryBadge: "bg-purple-500/10 text-purple-600 border-purple-200/80",
+    title: "SAP HR / SuccessFactors",
+    description: "Core HR, payroll, talent & performance management on SuccessFactors.",
+    duration: "50 hrs",
+    idealFor: "HR professionals",
+    nextBatch: "Andheri · Online"
+  },
+  {
+    id: "sap-abap",
+    category: "TECHNICAL",
+    categoryBadge: "bg-indigo-500/10 text-indigo-600 border-indigo-200/80",
+    title: "SAP ABAP",
+    description: "Core programming, reports, enhancements & debugging on SAP NetWeaver.",
+    duration: "65 hrs",
+    idealFor: "IT / CS graduates",
+    nextBatch: "Ghatkopar · Online"
+  },
+  {
+    id: "sap-basis",
+    category: "INFRASTRUCTURE",
+    categoryBadge: "bg-cyan-500/10 text-cyan-600 border-cyan-200/80",
+    title: "SAP BASIS",
+    description: "System administration, installation & performance tuning of SAP landscapes.",
+    duration: "50 hrs",
+    idealFor: "System admins / IT",
+    nextBatch: "Vashi · Online"
+  }
+];
+---
+
+<section id="curriculum" class="py-12 md:py-16 bg-slate-100/70 border-y border-slate-200/90 relative overflow-hidden" aria-labelledby="courses-heading">
+  
+  <!-- Ambient Section Glow Overlay for Strong Visual Differentiation -->
+  <div class="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header (Centered Block for Visual Hierarchy) -->
+    <div class="max-w-3xl mx-auto text-center mb-10 md:mb-12">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-extrabold text-primary uppercase tracking-widest mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary" aria-hidden="true"></span>
+        COURSES
+      </div>
+      <h2 id="courses-heading" class="text-2xl sm:text-4xl lg:text-[2.65rem] font-black text-heading font-serif tracking-tight leading-tight">
+        Pick your SAP module
+      </h2>
+      <p class="mt-2 text-sm sm:text-lg text-body font-normal leading-relaxed">
+        Classroom in Andheri, Ghatkopar & Vashi, or Live Online. Every module includes real projects and placement support.
+      </p>
+    </div>
+
+    <!-- 6 Course Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4.5 sm:gap-6">
+      {courseModules.map((course) => (
+        <div class="bg-white rounded-2xl border border-slate-200/90 shadow-md shadow-slate-200/40 p-4.5 sm:p-6 flex flex-col justify-between transform transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:border-primary/40">
+          
+          <div>
+            <!-- Top Tag & Title Row -->
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class={`text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded border ${course.categoryBadge}`}>
+                {course.category}
+              </span>
+              <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                Live Batch
+              </span>
+            </div>
+
+            <!-- Course Title -->
+            <h3 class="text-lg sm:text-xl font-black text-heading mb-1.5 leading-snug">
+              {course.title}
+            </h3>
+
+            <!-- Short Description -->
+            <p class="text-xs sm:text-sm text-body font-normal leading-relaxed mb-4">
+              {course.description}
+            </p>
+
+            <!-- Metadata List -->
+            <div class="space-y-1.5 text-xs border-t border-slate-100 pt-3 mb-4">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 font-medium">Duration</span>
+                <span class="text-heading font-extrabold">{course.duration}</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 font-medium">Ideal for</span>
+                <span class="text-heading font-bold">{course.idealFor}</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 font-medium">Next batch</span>
+                <span class="text-primary font-bold">{course.nextBatch}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Action Buttons & Links Row -->
+          <div class="space-y-2.5 text-center pt-2 border-t border-slate-100">
+            <a
+              href="#enroll"
+              class="inline-block text-xs sm:text-sm font-extrabold text-primary hover:text-primary-hover transition-colors"
+            >
+              View Full Curriculum →
+            </a>
+            
+            <a
+              href="#enroll"
+              class="w-full inline-flex items-center justify-center min-h-[44px] px-4 py-2.5 text-xs sm:text-sm font-extrabold text-white bg-accent hover:bg-accent-hover active:bg-accent rounded-xl shadow-md shadow-accent/20 transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer"
+            >
+              Enquire About This Course
+            </a>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
