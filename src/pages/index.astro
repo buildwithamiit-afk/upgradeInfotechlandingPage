@@ -5,12 +5,18 @@ import Footer from '../components/layout/Footer.astro';
 
 import HeroSection from '../components/sections/HeroSection.astro';
 import FeaturesSection from '../components/sections/FeaturesSection.astro';
+import InstructorSection from '../components/sections/InstructorSection.astro';
 import CurriculumSection from '../components/sections/CurriculumSection.astro';
-import PlacementSection from '../components/sections/PlacementSection.astro';
 import JourneySection from '../components/sections/JourneySection.astro';
+import PlacementSection from '../components/sections/PlacementSection.astro';
+import TestimonialsSection from '../components/sections/TestimonialsSection.astro';
 import BenefitsSection from '../components/sections/BenefitsSection.astro';
 import FaqSection from '../components/sections/FaqSection.astro';
 import CtaSection from '../components/sections/CtaSection.astro';
+
+import MidPageCta from '../components/common/MidPageCta.astro';
+import ExitIntentPopup from '../components/common/ExitIntentPopup.astro';
+import WhatsAppButton from '../components/common/WhatsAppButton.astro';
 ---
 
 <Layout
@@ -20,15 +26,42 @@ import CtaSection from '../components/sections/CtaSection.astro';
   <Header />
   
   <main id="main-content" class="flex-grow">
+    <!-- 1. Hero Section -->
     <HeroSection />
+
+    <!-- 2. Why Upgrade Infotech (Trust/Credibility + Practising Consultants) -->
     <FeaturesSection />
+    <InstructorSection />
+
+    <!-- 3. Pick Your SAP Module (Curriculum Section) -->
     <CurriculumSection />
-    <PlacementSection />
+
+    <!-- 4. From Classroom to Career (3-Step Process) -->
     <JourneySection />
+
+    <!-- 5. Placements & 500+ Recruiter Partners -->
+    <PlacementSection />
+
+    <!-- Mid-Page Conversion CTA Banner 1 -->
+    <MidPageCta />
+
+    <!-- 6. Testimonials (Student Success Stories) -->
+    <TestimonialsSection />
+
+    <!-- Mid-Page Conversion CTA Banner 2 -->
+    <MidPageCta />
+
+    <!-- 7. Upgrade Infotech vs. Other Mumbai Institutes (Comparison Table) -->
     <BenefitsSection />
+
+    <!-- 8. FAQ (Objection Handling) -->
     <FaqSection />
+
+    <!-- 9. Final CTA (Monsoon Offer Urgency Banner) -->
     <CtaSection />
   </main>
 
   <Footer />
+  <ExitIntentPopup />
+  <WhatsAppButton />
 </Layout>

@@ -1,18 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  /* Centralized Brand Color System - Change values here to update the entire website */
-  --color-primary: #2563EB;
-  --color-primary-hover: #1D4ED8;
-  --color-secondary: #1E40AF;
-  --color-accent: #F97316;
-  --color-accent-hover: #ea580c;
-  --color-success: #22C55E;
-  --color-bg: #FFFFFF;
-  --color-bg-alt: #F8FAFC;
-  --color-heading: #0F172A;
-  --color-body: #475569;
-  --color-border: #E2E8F0;
+  /* Centralized Brand Color System - Powered by Deep Royal Purple #330066 */
+  --color-primary: #5B00B3;        /* Vivid Royal Deep Purple */
+  --color-primary-hover: #47008C;  /* Rich Violet Hover */
+  --color-primary-light: #F4EBFB;  /* Soft #330066 Lavender Tint */
+  
+  --color-secondary: #330066;      /* User Specified Deep Royal Purple #330066 */
+  --color-secondary-hover: #26004D;
+  
+  --color-accent: #D946EF;         /* Vivid Fuchsia Purple Accent Glow */
+  --color-accent-hover: #C084FC;   /* Orchid Accent Hover */
+  --color-accent-light: #FDF2FF;   /* Soft Fuchsia Light Tint */
+  
+  --color-success: #10B981;
+  --color-bg: #FFFFFF;             /* Pure White Surface */
+  --color-bg-alt: #FAF2FF;         /* Soft #330066 Lavender Tinted Background */
+  --color-heading: #330066;        /* Deep Royal Purple #330066 Heading Text */
+  --color-body: #475569;           /* Readable Body Slate */
+  --color-border: #E6CCFF;        /* Light #330066 Lavender Border */
+  
+  --color-surface-dark: #240046;   /* Deep Royal Midnight Dark Surface (#330066 shade) */
+  --color-surface-border: #4D0099; /* Dark Surface Border */
   
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   --font-serif: 'Playfair Display', Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -21,15 +30,20 @@
 @theme {
   --color-primary: var(--color-primary);
   --color-primary-hover: var(--color-primary-hover);
+  --color-primary-light: var(--color-primary-light);
   --color-secondary: var(--color-secondary);
+  --color-secondary-hover: var(--color-secondary-hover);
   --color-accent: var(--color-accent);
   --color-accent-hover: var(--color-accent-hover);
+  --color-accent-light: var(--color-accent-light);
   --color-success: var(--color-success);
   --color-bg: var(--color-bg);
   --color-bg-alt: var(--color-bg-alt);
   --color-heading: var(--color-heading);
   --color-body: var(--color-body);
   --color-border: var(--color-border);
+  --color-surface-dark: var(--color-surface-dark);
+  --color-surface-border: var(--color-surface-border);
   --font-serif: var(--font-serif);
 }
 
@@ -117,4 +131,24 @@ details[open] .chevron-icon {
 
 .animate-marquee-reverse:hover {
   animation-play-state: paused;
+}
+
+/* Eye-Catching Attention Wiggle / Shake Micro-Animation */
+@keyframes attention-wiggle {
+  0%, 80%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  85% {
+    transform: rotate(-3.5deg) scale(1.04);
+  }
+  90% {
+    transform: rotate(3.5deg) scale(1.04);
+  }
+  95% {
+    transform: rotate(-2deg) scale(1.04);
+  }
+}
+
+.animate-attention-wiggle {
+  animation: attention-wiggle 3s ease-in-out infinite;
 }

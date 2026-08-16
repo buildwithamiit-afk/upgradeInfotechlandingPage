@@ -1,16 +1,26 @@
 ---
-// Zero-JS High-Converting Hero Component with Reference Floating Stats Bar
+// High-Converting Multi-Step Lead Capture Hero Component
+const recruiterLogos = [
+  { src: "/Tata_Consultancy_Services_Logo.webp", alt: "TCS Logo", height: "h-8 sm:h-10" },
+  { src: "/Infosys_log.webp", alt: "Infosys Logo", height: "h-7 sm:h-9" },
+  { src: "/LTI_Lets_solve.webp", alt: "LTI Mindtree Logo", height: "h-7 sm:h-9" },
+  { src: "/Bosch-Logo.webp", alt: "Bosch Logo", height: "h-7 sm:h-9" },
+  { src: "/Infor_logo.webp", alt: "Infor Logo", height: "h-7 sm:h-9" },
+  { src: "/apprisia-logo.webp", alt: "Apprisia Logo", height: "h-7 sm:h-9" },
+];
+
+const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruiterLogos];
 ---
 
-<section class="relative pt-6 pb-16 md:pt-8 md:pb-20 overflow-hidden bg-gradient-to-b from-primary/5 via-bg-alt to-bg" aria-label="Hero Introduction">
+<section class="relative pt-4 pb-12 md:pt-8 md:pb-16 overflow-hidden bg-bg-alt border-b border-border" aria-label="Hero Introduction">
   <!-- Subtle Background Grid Overlay -->
-  <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f060_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f060_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-40" aria-hidden="true"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Top Centered Urgency Banner Pill -->
-    <div class="flex justify-center mb-5 sm:mb-6">
-      <div class="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/10 via-accent/10 to-amber-500/10 border border-amber-400/40 text-[11px] sm:text-xs font-bold text-heading shadow-xs text-center">
+    <div class="flex justify-center mb-4 sm:mb-6">
+      <div class="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-primary-light border border-border text-[11px] sm:text-xs font-bold text-heading shadow-xs text-center">
         <span class="w-2 h-2 rounded-full bg-accent animate-pulse shrink-0" aria-hidden="true"></span>
         <span class="px-2 py-0.5 rounded-full bg-accent text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider">
           Monsoon Offer
@@ -22,152 +32,220 @@
     </div>
 
     <!-- Main 2-Column Hero Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-10 sm:mb-12 lg:mb-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start mb-10 sm:mb-12 lg:mb-16">
       
-      <!-- Left Column: Copy, Headlines, Trust Badges & Action Buttons -->
+      <!-- Left Column: Copy, Headlines, Trust Bar & Action Buttons -->
       <div class="lg:col-span-7 space-y-3.5 sm:space-y-4 text-left">
         
         <!-- Pre-heading Tagline -->
-        <div class="text-[11px] sm:text-xs font-extrabold tracking-wider text-primary uppercase">
-          SAP AUTHORISED TRAINING PARTNER · MUMBAI
+        <div class="text-[11px] sm:text-xs font-extrabold tracking-wider text-primary uppercase flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary" aria-hidden="true"></span>
+          <span>SAP AUTHORISED TRAINING PARTNER · MUMBAI</span>
         </div>
 
-        <!-- Main H1 Heading -->
-        <h1 class="text-2xl sm:text-4xl lg:text-[2.75rem] font-black text-heading tracking-tight leading-[1.2]">
-          Best SAP Training Institute in Andheri, Mumbai <span class="bg-gradient-to-r from-accent to-amber-500 bg-clip-text text-transparent">with 100% Placement Assistance</span>
+        <!-- H1 Heading -->
+        <h1 class="text-2xl sm:text-4xl lg:text-[2.75rem] font-black text-heading tracking-tight leading-[1.18]">
+          Get SAP Certified. <span class="text-primary font-black">Get Job-Ready in 90 Days.</span>
         </h1>
 
-        <!-- Clear Readable Subheading Copy -->
-        <p class="text-xs sm:text-base text-body font-normal leading-relaxed max-w-2xl">
-          Learn SAP FICO, MM, SD, HR & ABAP from certified, currently-practising SAP consultants. Classroom in Andheri, Ghatkopar, Vashi or Live Online. Real projects, real placements.
-        </p>
+        <!-- Subheadline Copy 1 & 2 -->
+        <div class="space-y-2 max-w-2xl">
+          <p class="text-xs sm:text-base text-body font-semibold leading-relaxed">
+            Learn SAP from practising consultants and work on real, ticket-based projects so you’re prepared for the kind of work companies actually hire for.
+          </p>
+          <p class="text-xs sm:text-sm text-body/90 font-medium leading-relaxed">
+            Choose from <strong class="text-heading font-extrabold">SAP FICO, MM, SD, HR & ABAP</strong> with classroom training in <strong class="text-heading font-extrabold">Andheri, Ghatkopar & Vashi</strong>, or join live online from anywhere.
+          </p>
+        </div>
 
-        <!-- Trust Badges Row -->
-        <div class="space-y-2 pt-1 text-xs font-semibold text-heading">
-          <div class="flex flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-1.5">
-            <div class="flex items-center gap-1.5 text-accent font-bold">
-              <span>★</span>
-              <span class="text-heading font-semibold">12+ Years of Training Excellence</span>
+        <!-- Single Horizontal Trust Bar (2x2 Grid on Mobile) -->
+        <div class="pt-1 pb-1">
+          <div class="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-4 text-xs font-bold text-heading">
+            <div class="flex items-center gap-1.5 bg-white sm:bg-transparent p-2 sm:p-0 rounded-xl border sm:border-0 border-border shadow-2xs sm:shadow-none">
+              <span class="text-amber-500 text-sm">⭐</span>
+              <span>4.8/5 from 380+ Reviews</span>
             </div>
-            <div class="flex items-center gap-1.5 text-accent font-bold">
-              <span>★</span>
-              <span class="text-heading font-semibold">4.8★ Google Rating (380+ Reviews)</span>
+            <div class="flex items-center gap-1.5 bg-white sm:bg-transparent p-2 sm:p-0 rounded-xl border sm:border-0 border-border shadow-2xs sm:shadow-none">
+              <span class="text-primary text-sm">🏆</span>
+              <span>12+ Years of Training Experience</span>
             </div>
-          </div>
-          <div class="flex items-center gap-1.5 text-primary font-bold">
-            <span class="text-sm">💳</span>
-            <span>No-Cost EMI Available</span>
+            <div class="flex items-center gap-1.5 bg-white sm:bg-transparent p-2 sm:p-0 rounded-xl border sm:border-0 border-border shadow-2xs sm:shadow-none">
+              <span class="text-accent text-sm">🎯</span>
+              <span>94% Placement Rate</span>
+            </div>
+            <div class="flex items-center gap-1.5 bg-white sm:bg-transparent p-2 sm:p-0 rounded-xl border sm:border-0 border-border shadow-2xs sm:shadow-none">
+              <span class="text-emerald-600 text-sm">💳</span>
+              <span>No-Cost EMI Available</span>
+            </div>
           </div>
         </div>
 
-        <!-- Left Action Buttons -->
-        <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
-          <a
-            href="#enroll"
-            class="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-7 py-2.5 text-sm font-extrabold text-white bg-accent hover:bg-accent-hover active:bg-accent rounded-xl shadow-md shadow-accent/20 transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary"
-          >
-            Check My Eligibility →
-          </a>
+        <!-- Left Action Buttons (Primary vs Secondary Differentiation) -->
+        <div class="pt-1 space-y-2">
+          <h3 class="text-sm font-black text-heading uppercase tracking-wide">
+            Your SAP Career Can Start Here.
+          </h3>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <!-- Primary CTA: Solid Primary Fill -->
+            <a
+              href="https://docs.google.com/forms/d/1T9MaTI0fQnimVQVLGYunn7XoaZK29Uf19RpTTjFI8gg/viewform?pli=1&pli=1&edit_requested=true"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full sm:w-auto inline-flex items-center justify-center min-h-[48px] px-7 py-3 text-sm sm:text-base font-black text-white bg-primary hover:bg-primary-hover active:bg-primary rounded-xl shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary text-center"
+            >
+              <span>Check My Eligibility →</span>
+            </a>
 
-          <a
-            href="#curriculum"
-            class="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-6 py-2.5 text-sm font-bold text-heading bg-white hover:bg-bg-alt border border-border rounded-xl shadow-xs transition-all focus:outline-none focus:ring-2 focus:ring-primary"
-          >
-            View Courses & Fees
-          </a>
+            <!-- Secondary CTA: Outline/Ghost Button -->
+            <a
+              href="#curriculum"
+              class="w-full sm:w-auto inline-flex items-center justify-center min-h-[48px] px-6 py-3 text-sm sm:text-bold text-heading bg-white hover:bg-bg-alt border-2 border-primary/30 hover:border-primary rounded-xl shadow-xs transition-all focus:outline-none focus:ring-2 focus:ring-primary text-center"
+            >
+              <span>View Courses & Fees</span>
+            </a>
+          </div>
+
+          <!-- Microcopy under CTAs -->
+          <p class="text-[11px] font-medium text-body/90 italic flex items-center gap-1">
+            <span>⚡</span>
+            <span>Limited seats available for the upcoming batch.</span>
+          </p>
         </div>
 
       </div>
 
-      <!-- Right Column: Clean High-Converting Lead Capture Form Card -->
+      <!-- Right Column: 2-Field High-Converting Lead Capture Form Card -->
       <div class="lg:col-span-5">
         <div id="enroll" class="bg-white text-heading rounded-2xl shadow-xl border border-border overflow-hidden relative">
           
-          <!-- Top Gradient Accent Line -->
-          <div class="h-1.5 bg-gradient-to-r from-primary via-accent to-primary" aria-hidden="true"></div>
+          <!-- Top Primary Accent Line -->
+          <div class="h-1.5 bg-primary" aria-hidden="true"></div>
 
           <!-- Lead Form Body -->
-          <div class="p-4.5 sm:p-6 bg-white">
-            <h2 class="text-lg sm:text-xl font-black text-heading tracking-tight mb-0.5 text-left">
-              Get Your Free Career Roadmap
-            </h2>
-            <p class="text-xs text-body mb-4 text-left">
-              Fees, batch dates & eligibility in one quick call.
+          <div class="p-5 sm:p-6 bg-white">
+            <div class="flex items-center justify-between mb-1">
+              <h2 class="text-lg sm:text-xl font-black text-heading tracking-tight text-left">
+                Get Your Free Career Roadmap
+              </h2>
+              <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 uppercase border border-emerald-500/20">
+                Step 1 of 2
+              </span>
+            </div>
+            <p class="text-xs text-body mb-4 text-left font-medium">
+              Get fees, batch dates & eligibility structure in 30 mins.
             </p>
 
-            <form action="/api/lead" method="POST" class="space-y-3">
-              <!-- Full Name Input -->
-              <div>
-                <label for="hero-lead-name" class="sr-only">Full Name</label>
-                <input
-                  type="text"
-                  id="hero-lead-name"
-                  name="name"
-                  required
-                  placeholder="Full Name"
-                  class="w-full h-11 sm:h-10 px-3.5 rounded-xl border border-slate-300 text-sm font-medium focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading placeholder:text-body/60"
-                />
+            <form id="hero-lead-form" action="/api/lead" method="POST" class="space-y-3">
+              <!-- Step 1 Fields: Name + Phone -->
+              <div id="form-step-1" class="space-y-3">
+                <!-- Full Name Input -->
+                <div>
+                  <label for="hero-lead-name" class="block text-[11px] font-extrabold uppercase text-heading mb-1">
+                    Full Name <span class="text-accent">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="hero-lead-name"
+                    name="name"
+                    required
+                    placeholder="Enter your full name"
+                    class="w-full h-11 px-3.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading placeholder:text-slate-400"
+                  />
+                </div>
+
+                <!-- Mobile Number Input -->
+                <div>
+                  <label for="hero-lead-phone" class="block text-[11px] font-extrabold uppercase text-heading mb-1">
+                    Mobile Number <span class="text-accent">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="hero-lead-phone"
+                    name="phone"
+                    required
+                    pattern="[0-9]{10}"
+                    maxlength="10"
+                    placeholder="10-digit mobile number"
+                    class="w-full h-11 px-3.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading placeholder:text-slate-400"
+                  />
+                </div>
               </div>
 
-              <!-- Mobile Number Input -->
-              <div>
-                <label for="hero-lead-phone" class="sr-only">Mobile Number</label>
-                <input
-                  type="tel"
-                  id="hero-lead-phone"
-                  name="phone"
-                  required
-                  placeholder="Mobile Number"
-                  class="w-full h-11 sm:h-10 px-3.5 rounded-xl border border-slate-300 text-sm font-medium focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading placeholder:text-body/60"
-                />
+              <!-- Step 2 Fields: Location & Course (Progressive Disclosure) -->
+              <div id="form-step-2" class="space-y-3 hidden">
+                <div>
+                  <label for="hero-lead-location" class="block text-[11px] font-extrabold uppercase text-heading mb-1">
+                    Preferred Location
+                  </label>
+                  <select
+                    id="hero-lead-location"
+                    name="location"
+                    class="w-full h-11 px-3.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading cursor-pointer"
+                  >
+                    <option value="andheri" selected>Andheri Classroom</option>
+                    <option value="ghatkopar">Ghatkopar Classroom</option>
+                    <option value="vashi">Vashi Classroom</option>
+                    <option value="live-online">Live Online Batch</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="hero-lead-course" class="block text-[11px] font-extrabold uppercase text-heading mb-1">
+                    Course Interested In
+                  </label>
+                  <select
+                    id="hero-lead-course"
+                    name="course"
+                    class="w-full h-11 px-3.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading cursor-pointer"
+                  >
+                    <option value="sap-fico" selected>SAP FICO (Finance & Control)</option>
+                    <option value="sap-mm">SAP MM (Materials Management)</option>
+                    <option value="sap-sd">SAP SD (Sales & Distribution)</option>
+                    <option value="sap-hr">SAP HR / HCM</option>
+                    <option value="sap-abap">SAP ABAP Development</option>
+                  </select>
+                </div>
               </div>
 
-              <!-- Preferred Location Select -->
-              <div>
-                <label for="hero-lead-location" class="sr-only">Preferred Location</label>
-                <select
-                  id="hero-lead-location"
-                  name="location"
-                  class="w-full h-11 sm:h-10 px-3.5 rounded-xl border border-slate-300 text-sm font-medium focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading cursor-pointer"
-                >
-                  <option value="" disabled selected>Preferred Location</option>
-                  <option value="andheri">Andheri Classroom</option>
-                  <option value="ghatkopar">Ghatkopar Classroom</option>
-                  <option value="vashi">Vashi Classroom</option>
-                  <option value="live-online">Live Online Batch</option>
-                </select>
+              <!-- Privacy Microcopy DIRECTLY ABOVE CTA BUTTON -->
+              <div class="flex items-center justify-center gap-1.5 text-[11px] text-emerald-700 font-bold bg-emerald-50 py-1.5 px-3 rounded-lg border border-emerald-200">
+                <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                <span>100% Confidential · No Spam Calls · Call within 30 mins</span>
               </div>
 
-              <!-- Course Interested In Select -->
-              <div>
-                <label for="hero-lead-course" class="sr-only">Course Interested In</label>
-                <select
-                  id="hero-lead-course"
-                  name="course"
-                  class="w-full h-11 sm:h-10 px-3.5 rounded-xl border border-slate-300 text-sm font-medium focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading cursor-pointer"
-                >
-                  <option value="" disabled selected>Course Interested In</option>
-                  <option value="sap-fico">SAP FICO (Financial & Control)</option>
-                  <option value="sap-mm">SAP MM (Materials Management)</option>
-                  <option value="sap-sd">SAP SD (Sales & Distribution)</option>
-                  <option value="sap-hr">SAP HR / HCM</option>
-                  <option value="sap-abap">SAP ABAP Development</option>
-                  <option value="full-stack">Full-Stack & Cloud Engineering</option>
-                </select>
-              </div>
-
-              <!-- Primary Submit CTA Button -->
+              <!-- Value-Packed Primary Submit CTA Button -->
               <button
                 type="submit"
-                class="w-full min-h-[46px] mt-1 px-4 py-2.5 text-sm font-extrabold text-white bg-accent hover:bg-accent-hover active:bg-accent rounded-xl shadow-md shadow-accent/20 hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer transform hover:-translate-y-0.5"
+                id="hero-form-submit-btn"
+                class="w-full min-h-[48px] mt-1 px-4 py-3 text-sm sm:text-base font-black text-white bg-primary hover:bg-primary-hover active:bg-primary rounded-xl shadow-lg shadow-primary/25 hover:shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer transform hover:-translate-y-0.5"
               >
-                Get Fee Structure →
+                Get Fee & Free Demo Class →
               </button>
             </form>
 
-            <!-- Trust Subtext -->
-            <div class="mt-3 pt-2 border-t border-slate-100 text-[10px] text-center text-body/80 font-medium leading-tight">
-              100% Confidential · No Spam Calls · Call within 30 mins
+            <!-- Recruiter Logos Strip Directly Below Form (Continuous Slow Moving Marquee) -->
+            <div class="mt-4 pt-3.5 border-t border-slate-100">
+              <p class="text-[11px] font-black uppercase tracking-wider text-heading text-center mb-2.5">
+                Students Placed At Top Companies
+              </p>
+              <div class="bg-slate-50/90 py-3 rounded-xl border border-slate-200/90 overflow-hidden relative">
+                <!-- Edge Overlay Gradients for smooth fade -->
+                <div class="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
+                <div class="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
+
+                <!-- Slow Moving Continuous Marquee Track -->
+                <div class="animate-marquee flex items-center gap-6 sm:gap-8">
+                  {infiniteRecruiterLogos.map((logo) => (
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      class={`${logo.height} w-auto object-contain hover:scale-105 transition-transform shrink-0`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
 
           </div>
@@ -177,42 +255,149 @@
 
     </div>
 
-    <!-- Ultra-Compact 100% Responsive Metric Cards Bar -->
+    <!-- Ultra-Compact Metric Cards Bar with Visual Icons -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 max-w-5xl mx-auto relative z-20">
       
       <!-- Card 1: Students Trained -->
       <div class="bg-white p-3.5 sm:p-4.5 rounded-xl sm:rounded-2xl border border-slate-200/90 shadow-md shadow-slate-200/40 text-center transform transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/40">
+        <div class="text-xl mb-1">🎓</div>
         <p class="text-2xl sm:text-3xl font-black text-heading leading-none tracking-tight">
           2,840<span class="text-accent font-extrabold ml-0.5">+</span>
         </p>
-        <p class="text-[11px] sm:text-xs font-bold text-body mt-1.5">Students Trained</p>
+        <p class="text-[11px] sm:text-xs font-bold text-body mt-1">Students Trained</p>
       </div>
 
       <!-- Card 2: Recruiter Partners -->
       <div class="bg-white p-3.5 sm:p-4.5 rounded-xl sm:rounded-2xl border border-slate-200/90 shadow-md shadow-slate-200/40 text-center transform transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/40">
+        <div class="text-xl mb-1">🏢</div>
         <p class="text-2xl sm:text-3xl font-black text-heading leading-none tracking-tight">
           320<span class="text-accent font-extrabold ml-0.5">+</span>
         </p>
-        <p class="text-[11px] sm:text-xs font-bold text-body mt-1.5">Recruiter Partners</p>
+        <p class="text-[11px] sm:text-xs font-bold text-body mt-1">Recruiter Partners</p>
       </div>
 
       <!-- Card 3: Placement Rate -->
       <div class="bg-white p-3.5 sm:p-4.5 rounded-xl sm:rounded-2xl border border-slate-200/90 shadow-md shadow-slate-200/40 text-center transform transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/40">
+        <div class="text-xl mb-1">🎯</div>
         <p class="text-2xl sm:text-3xl font-black text-heading leading-none tracking-tight">
           94%
         </p>
-        <p class="text-[11px] sm:text-xs font-bold text-body mt-1.5">Placement Rate</p>
+        <p class="text-[11px] sm:text-xs font-bold text-body mt-1">Placement Rate</p>
       </div>
 
       <!-- Card 4: Years Experience -->
       <div class="bg-white p-3.5 sm:p-4.5 rounded-xl sm:rounded-2xl border border-slate-200/90 shadow-md shadow-slate-200/40 text-center transform transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/40">
+        <div class="text-xl mb-1">🏆</div>
         <p class="text-2xl sm:text-3xl font-black text-heading leading-none tracking-tight">
           12<span class="text-accent font-extrabold ml-0.5">+</span>
         </p>
-        <p class="text-[11px] sm:text-xs font-bold text-body mt-1.5">Years Experience</p>
+        <p class="text-[11px] sm:text-xs font-bold text-body mt-1">Years Experience</p>
       </div>
 
     </div>
 
   </div>
 </section>
+
+<!-- Client Script for Progressive 2-Step Form Reveal & CRM API Sync -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('hero-lead-form');
+    const step2 = document.getElementById('form-step-2');
+    const nameInput = document.getElementById('hero-lead-name');
+    const phoneInput = document.getElementById('hero-lead-phone');
+    const locationInput = document.getElementById('hero-lead-location');
+    const courseInput = document.getElementById('hero-lead-course');
+    const submitBtn = document.getElementById('hero-form-submit-btn');
+
+    const CRM_API_URL = 'https://dashboard.conceptninjas.com/services/web/syncLead/NUo5VXowRTYwZU1xdHVmdUw1WlQvdz09';
+    let isStep1Complete = false;
+
+    async function sendLeadToCRM(payload) {
+      try {
+        const res = await fetch(CRM_API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        return res.ok;
+      } catch (err) {
+        console.error('CRM sync error:', err);
+        return false;
+      }
+    }
+
+    if (form && submitBtn) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const nameVal = nameInput.value.trim();
+        const phoneVal = phoneInput.value.trim();
+
+        if (nameVal === '' || phoneVal.length < 10) {
+          alert('Please enter your full name and a valid 10-digit mobile number.');
+          return;
+        }
+
+        if (!isStep1Complete) {
+          // Step 1: Send initial lead immediately to Concept Ninjas CRM
+          isStep1Complete = true;
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Saving...';
+
+          await sendLeadToCRM({
+            name: nameVal,
+            email: 'info@upgradeinfotech.com',
+            mobile: phoneVal,
+            course: 'SAP Course',
+            location: 'Andheri',
+            message: 'New lead from Upgrade Infotech Landing Page (Step 1)',
+            source: 'Upgrade Infotech Landing Page'
+          });
+
+          submitBtn.disabled = false;
+          step2.classList.remove('hidden');
+          submitBtn.textContent = 'Submit & Reserve Seat →';
+          submitBtn.classList.remove('bg-primary');
+          submitBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+        } else {
+          // Step 2: Send complete details to CRM
+          const locVal = locationInput ? locationInput.value : 'Andheri';
+          const courseVal = courseInput ? courseInput.value : 'SAP FICO';
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting Lead...';
+
+          await sendLeadToCRM({
+            name: nameVal,
+            email: 'info@upgradeinfotech.com',
+            mobile: phoneVal,
+            course: courseVal,
+            location: locVal,
+            message: `New lead from Upgrade Infotech Landing Page (${courseVal} - ${locVal})`,
+            source: 'Upgrade Infotech Landing Page'
+          });
+
+          // Render Success Thank You Card
+          form.innerHTML = `
+            <div class="py-6 px-3 text-center space-y-3 bg-emerald-50 rounded-2xl border border-emerald-200">
+              <div class="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold">✓</div>
+              <h3 class="text-xl font-black text-heading">Career Roadmap Reserved!</h3>
+              <p class="text-xs text-body font-semibold leading-relaxed">
+                Thank you <strong>${nameVal}</strong>! Your details have been recorded in our CRM. Our senior SAP counselor will call you at <strong>${phoneVal}</strong> within 30 minutes.
+              </p>
+              <a
+                href="https://wa.me/917021348186?text=Hi%20Upgrade%20Infotech,%20I%20just%20submitted%20my%20enquiry%20for%20${encodeURIComponent(courseVal)}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-black rounded-xl shadow-md transition-all mt-1"
+              >
+                <span>Chat Now on WhatsApp →</span>
+              </a>
+            </div>
+          `;
+        }
+      });
+    }
+  });
+</script>

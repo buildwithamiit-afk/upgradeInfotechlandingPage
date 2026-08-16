@@ -1,0 +1,164 @@
+---
+// Client-side Exit Intent Brochure Capture Modal
+---
+
+<div
+  id="exit-intent-modal"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/70 backdrop-blur-sm p-4 hidden opacity-0 transition-opacity duration-300"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="exit-modal-title"
+>
+  <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden border border-border relative transform scale-95 transition-transform duration-300">
+    
+    <!-- Top Accent Bar -->
+    <div class="h-2 bg-gradient-to-r from-primary via-accent to-secondary"></div>
+
+    <!-- Close Button -->
+    <button
+      id="exit-modal-close"
+      class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1.5 rounded-full hover:bg-slate-100 transition-colors focus:outline-none"
+      aria-label="Close popup"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+
+    <div class="p-6 sm:p-7 text-center">
+      
+      <!-- Icon Badge -->
+      <div class="w-14 h-14 bg-primary-light text-primary rounded-2xl flex items-center justify-center mx-auto mb-4 border border-border shadow-inner text-2xl">
+        📄
+      </div>
+
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-light text-accent text-xs font-black uppercase tracking-wider mb-2">
+        Before You Leave!
+      </span>
+
+      <h3 id="exit-modal-title" class="text-xl sm:text-2xl font-black text-heading tracking-tight mb-2">
+        Download Free SAP Course Guide & Syllabus PDF
+      </h3>
+      <p class="text-xs text-body mb-5 font-medium leading-relaxed">
+        Get the complete 2026 SAP FICO/MM/SD curriculum, placement stats, and detailed fee structure directly on your phone.
+      </p>
+
+      <form id="exit-intent-form" action="/api/lead" method="POST" class="space-y-3">
+        <input
+          type="text"
+          id="exit-modal-name"
+          name="name"
+          required
+          placeholder="Your Full Name"
+          class="w-full h-11 px-3.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-primary focus:outline-none bg-slate-50 text-heading"
+        />
+        <input
+          type="tel"
+          id="exit-modal-phone"
+          name="phone"
+          required
+          pattern="[0-9]{10}"
+          maxlength="10"
+          placeholder="Your 10-Digit Mobile Number"
+          class="w-full h-11 px-3.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-primary focus:outline-none bg-slate-50 text-heading"
+        />
+
+        <button
+          type="submit"
+          id="exit-modal-submit-btn"
+          class="w-full min-h-[46px] px-4 py-3 text-sm font-black text-white bg-accent hover:bg-accent-hover rounded-xl shadow-md transition-all cursor-pointer"
+        >
+          Download Free Syllabus PDF →
+        </button>
+      </form>
+
+      <p class="text-[10px] text-slate-400 mt-3 font-medium">
+        🔒 Instant WhatsApp download · No spam calls
+      </p>
+
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('exit-intent-modal');
+    const closeBtn = document.getElementById('exit-modal-close');
+    const exitForm = document.getElementById('exit-intent-form');
+    const exitName = document.getElementById('exit-modal-name');
+    const exitPhone = document.getElementById('exit-modal-phone');
+    const exitSubmitBtn = document.getElementById('exit-modal-submit-btn');
+    let hasTriggered = false;
+
+    // Trigger on desktop mouseleave (leaving viewport top)
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY <= 10 && !hasTriggered && modal) {
+        hasTriggered = true;
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+          modal.classList.remove('opacity-0');
+        }, 10);
+      }
+    });
+
+    if (closeBtn && modal) {
+      closeBtn.addEventListener('click', () => {
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 300);
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.add('opacity-0');
+          setTimeout(() => {
+            modal.classList.add('hidden');
+          }, 300);
+        }
+      });
+    }
+
+    if (exitForm && exitSubmitBtn) {
+      exitForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const nameVal = exitName ? exitName.value.trim() : '';
+        const phoneVal = exitPhone ? exitPhone.value.trim() : '';
+
+        if (nameVal === '' || phoneVal.length < 10) {
+          alert('Please enter your full name and a valid 10-digit mobile number.');
+          return;
+        }
+
+        exitSubmitBtn.disabled = true;
+        exitSubmitBtn.textContent = 'Sending...';
+
+        try {
+          await fetch('https://dashboard.conceptninjas.com/services/web/syncLead/NUo5VXowRTYwZU1xdHVmdUw1WlQvdz09', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: nameVal,
+              email: 'info@upgradeinfotech.com',
+              mobile: phoneVal,
+              course: 'SAP Course Syllabus PDF',
+              location: 'Andheri',
+              message: 'Exit Intent Brochure Download Lead',
+              source: 'Exit Intent Popup'
+            })
+          });
+        } catch (err) {
+          console.error(err);
+        }
+
+        exitForm.innerHTML = `
+          <div class="py-4 space-y-2 text-center bg-emerald-50 rounded-xl p-3 border border-emerald-200">
+            <div class="text-2xl">🎉</div>
+            <h4 class="text-base font-black text-heading">Syllabus PDF Request Received!</h4>
+            <p class="text-xs text-body font-semibold">Thank you <strong>${nameVal}</strong>! Our counselor will send the free SAP Syllabus PDF & Fee Guide to <strong>${phoneVal}</strong>.</p>
+          </div>
+        `;
+      });
+    }
+  });
+</script>

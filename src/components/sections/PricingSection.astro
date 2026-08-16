@@ -47,7 +47,7 @@ const highlights = [
 ];
 ---
 
-<section id="pricing" class="py-12 md:py-16 bg-slate-50/80 border-y border-slate-200/90 relative overflow-hidden" aria-labelledby="pricing-heading">
+<section id="pricing" class="py-12 md:py-16 bg-bg-alt border-y border-border relative overflow-hidden" aria-labelledby="pricing-heading">
   
   <!-- Ambient Soft Glow Overlay -->
   <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[550px] bg-primary/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
@@ -74,7 +74,7 @@ const highlights = [
         <!-- 6 Compact Module Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3.5">
           {modules.map((card) => (
-            <div class="bg-slate-50/70 rounded-xl border border-slate-200/80 p-3.5 flex flex-col justify-between transform transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-white hover:shadow-sm">
+            <div class="bg-primary-light/40 rounded-xl border border-border p-3.5 flex flex-col justify-between transform transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-white hover:shadow-sm">
               <div>
                 <h3 class="text-xs sm:text-sm font-black text-heading mb-0.5">
                   {card.name}
@@ -89,12 +89,12 @@ const highlights = [
                 <!-- Seat Availability Bar -->
                 <div class="bg-white p-1.5 rounded-lg border border-slate-200/70 mb-2">
                   <div class="flex items-center justify-between text-[10px] font-extrabold mb-0.5">
-                    <span class="text-amber-600">Only {card.seatsLeft} seats left</span>
+                    <span class="text-accent font-black">Only {card.seatsLeft} seats left</span>
                     <span class="text-slate-500">{card.filledPercentage}% filled</span>
                   </div>
                   <div class="w-full h-1 bg-slate-200 rounded-full overflow-hidden">
                     <div 
-                      class="h-full bg-gradient-to-r from-primary to-accent rounded-full"
+                      class="h-full bg-gradient-to-r from-primary via-accent to-secondary rounded-full"
                       style={`width: ${card.filledPercentage}%`}
                     ></div>
                   </div>
@@ -131,8 +131,8 @@ const highlights = [
         <div class="relative z-10">
           
           <!-- Offer Header Badge -->
-          <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 text-[11px] font-black uppercase tracking-wider mb-2.5">
-            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+          <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-accent-light border border-accent/30 text-accent text-[11px] font-black uppercase tracking-wider mb-2.5">
+            <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
             Monsoon Offer ends in
           </div>
 
@@ -157,16 +157,16 @@ const highlights = [
               <span id="countdown-min" class="text-xl sm:text-2xl font-black text-heading leading-none block">06</span>
               <span class="text-[9px] font-extrabold text-slate-500 uppercase tracking-widest block mt-1">MIN</span>
             </div>
-            <div class="bg-amber-50 rounded-xl p-2.5 text-center border border-amber-200">
-              <span id="countdown-sec" class="text-xl sm:text-2xl font-black text-amber-600 leading-none block">21</span>
-              <span class="text-[9px] font-extrabold text-amber-700 uppercase tracking-widest block mt-1">SEC</span>
+            <div class="bg-primary-light rounded-xl p-2.5 text-center border border-border">
+              <span id="countdown-sec" class="text-xl sm:text-2xl font-black text-primary leading-none block">21</span>
+              <span class="text-[9px] font-extrabold text-primary uppercase tracking-widest block mt-1">SEC</span>
             </div>
           </div>
 
           <!-- Value Checkmarks List -->
           <ul class="space-y-2 text-xs font-bold text-slate-700 mb-4">
             {highlights.map((item) => (
-              <li class="flex items-center gap-2 bg-slate-50 p-2 rounded-xl border border-slate-200/60">
+              <li class="flex items-center gap-2 bg-primary-light/60 p-2 rounded-xl border border-border">
                 <span class="text-emerald-500 font-extrabold shrink-0">✓</span>
                 <span>{item.replace('✓ ', '')}</span>
               </li>

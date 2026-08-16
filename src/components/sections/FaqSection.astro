@@ -42,7 +42,7 @@ const faqSchema = {
 };
 ---
 
-<section id="faq" class="py-14 md:py-20 bg-slate-50/80 border-y border-slate-200/90 relative overflow-hidden" aria-labelledby="faq-heading">
+<section id="faq" class="py-14 md:py-20 bg-bg-alt border-y border-border relative overflow-hidden" aria-labelledby="faq-heading">
   
   <!-- JSON-LD FAQ Schema for Google Rich Results -->
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -75,7 +75,7 @@ const faqSchema = {
             </h3>
             
             <!-- Chevron Circle Icon -->
-            <div class="w-8 h-8 rounded-full bg-slate-100 group-open:bg-primary group-open:text-white text-slate-500 flex items-center justify-center shrink-0 transition-colors">
+            <div class="w-8 h-8 rounded-full bg-primary-light group-open:bg-primary group-open:text-white text-slate-500 flex items-center justify-center shrink-0 transition-colors">
               <svg class="w-4 h-4 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
               </svg>
@@ -83,7 +83,7 @@ const faqSchema = {
           </summary>
 
           <!-- Accordion Answer Body -->
-          <div class="px-5 sm:px-6 pb-5 pt-3 border-t border-slate-100 bg-slate-50/60">
+          <div class="px-5 sm:px-6 pb-5 pt-3 border-t border-border/60 bg-primary-light/30">
             <p class="text-xs sm:text-sm text-body font-medium leading-relaxed">
               {faq.a}
             </p>
