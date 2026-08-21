@@ -1,107 +1,124 @@
 ---
-// Masterclass Zero-JS Accessible Footer Component (100% Exact Preserved User Copy & Layout)
-const courseLinks = [
+// Masterclass Premium Light Footer (Compact & Highly Organized)
+const quickLinks = [
   { name: "SAP FICO", href: "#pricing" },
   { name: "SAP MM", href: "#pricing" },
   { name: "SAP SD", href: "#pricing" },
-  { name: "SAP HR / SuccessFactors", href: "#pricing" },
-  { name: "SAP ABAP", href: "#pricing" }
-];
-
-const instituteLinks = [
+  { name: "SAP HR", href: "#pricing" },
   { name: "Why Us", href: "#features" },
   { name: "Placements", href: "#testimonials" },
-  { name: "Fees & EMI", href: "#pricing" },
-  { name: "FAQ", href: "#faq" }
 ];
 ---
 
-<footer class="bg-surface-dark text-slate-300 pt-8 pb-20 sm:pt-12 sm:pb-24 lg:pt-16 lg:pb-16 border-t border-surface-border relative overflow-hidden" aria-label="Site Footer">
+<footer class="bg-slate-50 text-slate-600 py-12 md:py-16 border-t border-slate-200 relative" aria-label="Site Footer">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
-    <!-- Compact 2-Column Mobile / 4-Column Desktop Footer Grid -->
-    <div class="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-8 sm:gap-8 mb-8 sm:mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-10 mb-12">
       
-      <!-- Column 1: Brand Overview (Full width on mobile, 4 Cols on desktop) -->
-      <div class="col-span-2 lg:col-span-4 space-y-3">
-        <a href="#" class="inline-flex items-center group focus:outline-none" aria-label="Upgrade Infotech Home">
+      <!-- Column 1: Brand Overview (4/12) -->
+      <div class="lg:col-span-4 flex flex-col space-y-5">
+        <a href="#" class="inline-flex focus:outline-none" aria-label="Upgrade Infotech Home">
           <img
             src="/main_logo.png"
             alt="Upgrade Infotech Logo"
-            class="h-10 sm:h-12 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
+            class="h-10 sm:h-12 w-auto object-contain"
           />
         </a>
-        
-        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm font-medium">
-          SAP Authorised Training Partner training Mumbai's finance, logistics & IT professionals since 2014.
+        <p class="text-[13px] text-slate-700 leading-relaxed font-medium max-w-sm">
+          Mumbai's leading SAP Authorised Training Partner. We transform graduates and working professionals into highly-paid SAP consultants through practical, job-oriented training.
         </p>
-
-        <!-- Locations Tag -->
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-[11px] sm:text-xs font-bold text-slate-300">
-          <span>📍 Andheri · Ghatkopar · Vashi · Online</span>
-        </div>
-      </div>
-
-      <!-- Column 2: Courses (Col 1 on mobile, 3 Cols on desktop) -->
-      <div class="col-span-1 lg:col-span-3">
-        <h3 class="text-xs font-black text-white uppercase tracking-widest mb-3">Courses</h3>
-        <ul class="space-y-2 text-xs sm:text-sm font-medium text-slate-400">
-          {courseLinks.map((item) => (
-            <li>
-              <a href={item.href} class="hover:text-primary transition-colors flex items-center gap-1">
-                <span class="text-primary/70">›</span>
-                <span>{item.name}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Column 3: Institute (Col 1 on mobile, 2 Cols on desktop - Side-by-side with Courses) -->
-      <div class="col-span-1 lg:col-span-2">
-        <h3 class="text-xs font-black text-white uppercase tracking-widest mb-3">Institute</h3>
-        <ul class="space-y-2 text-xs sm:text-sm font-medium text-slate-400">
-          {instituteLinks.map((item) => (
-            <li>
-              <a href={item.href} class="hover:text-primary transition-colors flex items-center gap-1">
-                <span class="text-primary/70">›</span>
-                <span>{item.name}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Column 4: Contact (Full width on mobile, 3 Cols on desktop - Compact horizontal list on mobile) -->
-      <div class="col-span-2 lg:col-span-3 space-y-2.5">
-        <h3 class="text-xs font-black text-white uppercase tracking-widest mb-2 sm:mb-4">Contact</h3>
         
-        <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm font-medium">
-          <a href="tel:+917021348186" class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            <span>+91 70213 48186</span>
+        <!-- Social/WhatsApp -->
+        <div class="flex items-center gap-3 pt-1">
+          <!-- WhatsApp -->
+          <a href="https://wa.me/917021348186" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white border border-slate-200 hover:bg-[#1BD760] text-[#1BD760] hover:text-white transition-all shadow-sm" aria-label="WhatsApp">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
           </a>
-
-          <a href="https://wa.me/917021348186" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors">
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-            <span>WhatsApp Us</span>
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/upgradeinfotech1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white border border-slate-200 hover:bg-[#1877F2] text-[#1877F2] hover:text-white transition-all shadow-sm" aria-label="Facebook">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
-
-          <a href="mailto:info@upgradeinfotech.com" class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            <span>info@upgradeinfotech.com</span>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/upgradeinfotech/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white border border-slate-200 hover:bg-[#E4405F] text-[#E4405F] hover:text-white transition-all shadow-sm" aria-label="Instagram">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/company/upgrade-language-academy" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white border border-slate-200 hover:bg-[#0A66C2] text-[#0A66C2] hover:text-white transition-all shadow-sm" aria-label="LinkedIn">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </a>
         </div>
+      </div>
+
+      <!-- Column 2: Quick Links (2/12) -->
+      <div class="lg:col-span-2">
+        <h3 class="text-sm font-bold text-slate-900 mb-4">Quick Links</h3>
+        <ul class="space-y-2.5 text-[13px] font-semibold text-slate-700">
+          {quickLinks.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-primary transition-colors">
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Column 3: Head Office (3/12) -->
+      <div class="lg:col-span-3 space-y-4">
+        <h3 class="text-sm font-bold text-slate-900 mb-4">Head Office</h3>
+        
+        <div class="text-[13px] text-slate-700 font-medium leading-relaxed flex items-start gap-2.5">
+          <svg class="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span>
+            <strong class="text-slate-900 font-bold block mb-0.5">Ghatkopar (W)</strong>
+            204, Rajgor Empire Building, Khot Lane, Junction, J.V. Rd, Mumbai, MH 400086.
+          </span>
+        </div>
+
+        <div class="text-[13px] text-slate-700 font-bold flex items-center gap-2.5">
+          <svg class="w-4 h-4 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <a href="tel:+917021348186" class="hover:text-primary transition-colors">+91 7021348186</a>
+        </div>
+
+        <div class="text-[13px] text-slate-700 font-bold flex items-center gap-2.5 break-all">
+          <svg class="w-4 h-4 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <a href="mailto:contactatupgradeinfotech@gmail.com" class="hover:text-primary transition-colors">contactatupgradeinfotech@gmail.com</a>
+        </div>
+      </div>
+
+      <!-- Column 4: Branches (3/12) -->
+      <div class="lg:col-span-3 space-y-4">
+        <h3 class="text-sm font-bold text-slate-900 mb-4">Branches</h3>
+        
+        <!-- Branch 1: Andheri -->
+        <div class="text-[13px] text-slate-700 font-medium leading-relaxed flex items-start gap-2.5">
+          <svg class="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          <span>
+            <strong class="text-slate-900 font-bold block mb-0.5">Andheri (W)</strong>
+            205, 2nd Floor, Times Chamber near paneeri showroom, S.V Road, Mumbai, MH 400058.
+          </span>
+        </div>
+
+        <!-- Branch 2: Vashi -->
+        <div class="text-[13px] text-slate-700 font-medium leading-relaxed flex items-start gap-2.5 mt-3">
+          <svg class="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          <span>
+            <strong class="text-slate-900 font-bold block mb-0.5">Vashi, Navi Mumbai</strong>
+            International Infotech Park, E-210, 2nd Floor, 3rd Tower, Navi Mumbai 400703.
+          </span>
+        </div>
+        
       </div>
 
     </div>
 
-    <!-- Bottom Copyright & Disclaimer Row -->
-    <div class="pt-6 border-t border-surface-border flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] sm:text-xs text-slate-500 text-center sm:text-left">
-      <p>© 2026 Upgrade Infotech. All rights reserved.</p>
-      <p class="italic">
-        Figures shown are sample placeholders — replace with verified data before launch.
-      </p>
+    <!-- Bottom Copyright Row -->
+    <div class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-400 text-center sm:text-left">
+      <p>Copyright © {new Date().getFullYear()} Eduwise Upgrade Infotech Pvt Ltd</p>
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+      </div>
     </div>
 
   </div>

@@ -1,5 +1,5 @@
 ---
-// Masterclass Zero-JS Centered FAQ Component with JSON-LD FAQ Schema
+// Minimal, Balanced, 2-Column FAQ Component
 const faqs = [
   {
     q: "What is the difference between SAP ECC and SAP S/4HANA training?",
@@ -42,62 +42,78 @@ const faqSchema = {
 };
 ---
 
-<section id="faq" class="py-14 md:py-20 bg-bg-alt border-y border-border relative overflow-hidden" aria-labelledby="faq-heading">
+<section id="faq" class="py-16 md:py-24 bg-[#FAFAFA] border-y border-slate-100 relative overflow-hidden" aria-labelledby="faq-heading">
   
   <!-- JSON-LD FAQ Schema for Google Rich Results -->
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-  <!-- Soft Ambient Glow Overlay -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- 1. Centered Section Header -->
     <div class="max-w-3xl mx-auto text-center mb-10 md:mb-14">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-extrabold text-primary uppercase tracking-widest mb-3">
-        <span class="w-1.5 h-1.5 rounded-full bg-primary" aria-hidden="true"></span>
-        FAQ
+      <div class="text-[11px] sm:text-[12px] font-bold text-amber-600 uppercase tracking-widest mb-3">
+        Help Center
       </div>
-      <h2 id="faq-heading" class="text-3xl sm:text-4xl lg:text-[2.65rem] font-black text-heading font-serif tracking-tight leading-tight">
-        Questions you might have
+      <h2 id="faq-heading" class="text-4xl sm:text-5xl lg:text-[3.25rem] font-serif font-bold text-slate-900 tracking-tight leading-tight mb-5">
+        Everything You Need to Know
       </h2>
-    </div>
-
-    <!-- 2. Clean Stacked Accordions List -->
-    <div class="max-w-3xl mx-auto space-y-3.5">
-      {faqs.map((faq) => (
-        <details class="group bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-md [&_summary::-webkit-details-marker]:hidden">
-          
-          <!-- Accordion Question Header -->
-          <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer select-none gap-4">
-            <h3 class="text-sm sm:text-base font-black text-heading group-hover:text-primary transition-colors tracking-tight">
-              {faq.q}
-            </h3>
-            
-            <!-- Chevron Circle Icon -->
-            <div class="w-8 h-8 rounded-full bg-primary-light group-open:bg-primary group-open:text-white text-slate-500 flex items-center justify-center shrink-0 transition-colors">
-              <svg class="w-4 h-4 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </div>
-          </summary>
-
-          <!-- Accordion Answer Body -->
-          <div class="px-5 sm:px-6 pb-5 pt-3 border-t border-border/60 bg-primary-light/30">
-            <p class="text-xs sm:text-sm text-body font-medium leading-relaxed">
-              {faq.a}
-            </p>
-          </div>
-
-        </details>
-      ))}
-    </div>
-
-    <!-- 3. Bottom Helpline Subtext -->
-    <div class="mt-10 text-center">
-      <p class="text-xs sm:text-sm text-slate-500 font-medium">
-        Still have questions? Call our counsellors at <a href="tel:+917021348186" class="font-extrabold text-primary hover:underline">+91-7021348186</a> or email <a href="mailto:info@upgradeinfotech.com" class="font-extrabold text-primary hover:underline">info@upgradeinfotech.com</a>
+      <p class="text-base sm:text-lg text-slate-500 font-medium leading-relaxed">
+        From batch schedules to curriculum details, find answers to the<br class="hidden sm:block"/> questions our students ask most often.
       </p>
+    </div>
+
+    <!-- 2. Two-Column Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+      
+      <!-- Left Column: Image Container -->
+      <div class="w-full relative rounded-lg overflow-hidden border border-slate-100 bg-white shadow-sm flex items-center justify-center">
+        <img src="/Upgrade_infotech_faq.png" alt="Upgrade Infotech FAQ Support" class="w-full h-auto max-h-[800px] object-cover" />
+      </div>
+
+      <!-- Right Column: Accordions & Contact Block -->
+      <div class="flex flex-col h-full">
+        
+        <!-- Accordion List -->
+        <div class="border-t border-slate-200">
+          {faqs.map((faq) => (
+            <details class="group border-b border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+              <summary class="flex items-center justify-between py-5 sm:py-6 cursor-pointer select-none">
+                <h3 class="text-base sm:text-[17px] font-bold text-slate-800 pr-4">
+                  {faq.q}
+                </h3>
+                <div class="w-5 h-5 shrink-0 text-slate-400 group-open:hidden flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+                </div>
+                <div class="w-5 h-5 shrink-0 text-slate-400 hidden group-open:flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4"/></svg>
+                </div>
+              </summary>
+              <div class="pb-6 pr-8">
+                <p class="text-sm sm:text-[15px] text-slate-600 font-medium leading-relaxed">
+                  {faq.a}
+                </p>
+              </div>
+            </details>
+          ))}
+        </div>
+
+        <!-- Contact Support Block (Directly below FAQs) -->
+        <div class="mt-8 lg:mt-12">
+          <h4 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">
+            Need More Information?
+          </h4>
+          <p class="text-sm sm:text-base text-slate-500 font-medium mb-6">
+            Get in touch with our team for quick answers and hassle-free enrollment.
+          </p>
+          <a
+            href="tel:+917021348186"
+            class="inline-flex items-center justify-center px-8 py-3.5 text-xs sm:text-sm font-bold text-white bg-slate-900 hover:bg-black rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-slate-900 uppercase tracking-widest shadow-sm"
+          >
+            Contact Support
+          </a>
+        </div>
+
+      </div>
     </div>
 
   </div>

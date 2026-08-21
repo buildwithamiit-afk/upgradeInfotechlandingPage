@@ -62,7 +62,7 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
         <div class="pt-1 pb-1">
           <div class="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-4 text-xs font-bold text-heading">
             <div class="flex items-center gap-1.5 bg-white sm:bg-transparent p-2 sm:p-0 rounded-xl border sm:border-0 border-border shadow-2xs sm:shadow-none">
-              <span class="text-amber-500 text-sm">⭐</span>
+              <span class="text-accent text-sm">⭐</span>
               <span>4.8/5 from 380+ Reviews</span>
             </div>
             <div class="flex items-center gap-1.5 bg-white sm:bg-transparent p-2 sm:p-0 rounded-xl border sm:border-0 border-border shadow-2xs sm:shadow-none">
@@ -74,7 +74,7 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
               <span>94% Placement Rate</span>
             </div>
             <div class="flex items-center gap-1.5 bg-white sm:bg-transparent p-2 sm:p-0 rounded-xl border sm:border-0 border-border shadow-2xs sm:shadow-none">
-              <span class="text-emerald-600 text-sm">💳</span>
+              <span class="text-primary text-sm">💳</span>
               <span>No-Cost EMI Available</span>
             </div>
           </div>
@@ -87,19 +87,18 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
           </h3>
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <!-- Primary CTA: Solid Primary Fill -->
-            <a
-              href="https://docs.google.com/forms/d/1T9MaTI0fQnimVQVLGYunn7XoaZK29Uf19RpTTjFI8gg/viewform?pli=1&pli=1&edit_requested=true"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-full sm:w-auto inline-flex items-center justify-center min-h-[48px] px-7 py-3 text-sm sm:text-base font-black text-white bg-primary hover:bg-primary-hover active:bg-primary rounded-xl shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary text-center"
+            <button
+              type="button"
+              class="placement-popup-trigger animate-shimmer-btn overflow-hidden relative w-full sm:w-auto inline-flex items-center justify-center min-h-[44px] px-6 py-2 text-sm font-bold text-white bg-primary hover:bg-primary-hover active:bg-primary rounded-lg shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary text-center group"
             >
-              <span>Check My Eligibility →</span>
-            </a>
+              <svg class="w-4 h-4 mr-1.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              <span>Free Consultation</span>
+            </button>
 
             <!-- Secondary CTA: Outline/Ghost Button -->
             <a
               href="#curriculum"
-              class="w-full sm:w-auto inline-flex items-center justify-center min-h-[48px] px-6 py-3 text-sm sm:text-bold text-heading bg-white hover:bg-bg-alt border-2 border-primary/30 hover:border-primary rounded-xl shadow-xs transition-all focus:outline-none focus:ring-2 focus:ring-primary text-center"
+              class="w-full sm:w-auto inline-flex items-center justify-center min-h-[44px] px-6 py-2 text-sm font-semibold text-heading bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 rounded-lg shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary text-center"
             >
               <span>View Courses & Fees</span>
             </a>
@@ -127,7 +126,7 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
               <h2 class="text-lg sm:text-xl font-black text-heading tracking-tight text-left">
                 Get Your Free Career Roadmap
               </h2>
-              <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 uppercase border border-emerald-500/20">
+              <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-primary/10 text-primary uppercase border border-primary/20">
                 Step 1 of 2
               </span>
             </div>
@@ -208,8 +207,8 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
               </div>
 
               <!-- Privacy Microcopy DIRECTLY ABOVE CTA BUTTON -->
-              <div class="flex items-center justify-center gap-1.5 text-[11px] text-emerald-700 font-bold bg-emerald-50 py-1.5 px-3 rounded-lg border border-emerald-200">
-                <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="flex items-center justify-center gap-1.5 text-[11px] text-primary font-bold bg-primary-light py-1.5 px-3 rounded-lg border border-primary/20">
+                <svg class="w-3.5 h-3.5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                 </svg>
                 <span>100% Confidential · No Spam Calls · Call within 30 mins</span>
@@ -219,9 +218,9 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
               <button
                 type="submit"
                 id="hero-form-submit-btn"
-                class="w-full min-h-[48px] mt-1 px-4 py-3 text-sm sm:text-base font-black text-white bg-primary hover:bg-primary-hover active:bg-primary rounded-xl shadow-lg shadow-primary/25 hover:shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer transform hover:-translate-y-0.5"
+                class="w-full min-h-[44px] mt-1 px-4 py-2.5 text-sm font-bold text-white bg-primary hover:bg-primary-hover active:bg-primary rounded-lg shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer group flex items-center justify-center"
               >
-                Get Fee & Free Demo Class →
+                Get Fee & Free Demo Class <span class="ml-1 transition-transform group-hover:translate-x-0.5">→</span>
               </button>
             </form>
 
@@ -359,7 +358,7 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
           step2.classList.remove('hidden');
           submitBtn.textContent = 'Submit & Reserve Seat →';
           submitBtn.classList.remove('bg-primary');
-          submitBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+          submitBtn.classList.add('bg-primary', 'hover:bg-primary-hover');
         } else {
           // Step 2: Send complete details to CRM
           const locVal = locationInput ? locationInput.value : 'Andheri';
@@ -380,20 +379,32 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
 
           // Render Success Thank You Card
           form.innerHTML = `
-            <div class="py-6 px-3 text-center space-y-3 bg-emerald-50 rounded-2xl border border-emerald-200">
-              <div class="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold">✓</div>
+            <div class="py-6 px-3 text-center space-y-3 bg-primary-light rounded-2xl border border-primary/20">
+              <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold">✓</div>
               <h3 class="text-xl font-black text-heading">Career Roadmap Reserved!</h3>
               <p class="text-xs text-body font-semibold leading-relaxed">
-                Thank you <strong>${nameVal}</strong>! Your details have been recorded in our CRM. Our senior SAP counselor will call you at <strong>${phoneVal}</strong> within 30 minutes.
+                Thank you <strong>\${nameVal}</strong>! Your details have been recorded in our CRM. Our senior SAP counselor will call you at <strong>\${phoneVal}</strong> within 30 minutes.
               </p>
-              <a
-                href="https://wa.me/917021348186?text=Hi%20Upgrade%20Infotech,%20I%20just%20submitted%20my%20enquiry%20for%20${encodeURIComponent(courseVal)}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-black rounded-xl shadow-md transition-all mt-1"
-              >
-                <span>Chat Now on WhatsApp →</span>
-              </a>
+              
+              <div class="flex flex-col gap-2 mt-3">
+                <a
+                  href="/placement_report.pdf"
+                  download="Placement_Report.pdf"
+                  class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-black rounded-xl shadow-md transition-all"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                  <span>Download Placement Report PDF</span>
+                </a>
+
+                <a
+                  href="https://wa.me/917021348186?text=Hi%20Upgrade%20Infotech,%20I%20just%20submitted%20my%20enquiry%20for%20\${encodeURIComponent(courseVal)}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-black rounded-xl shadow-md transition-all"
+                >
+                  <span>Chat Now on WhatsApp →</span>
+                </a>
+              </div>
             </div>
           `;
         }

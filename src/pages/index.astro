@@ -5,7 +5,6 @@ import Footer from '../components/layout/Footer.astro';
 
 import HeroSection from '../components/sections/HeroSection.astro';
 import FeaturesSection from '../components/sections/FeaturesSection.astro';
-import InstructorSection from '../components/sections/InstructorSection.astro';
 import CurriculumSection from '../components/sections/CurriculumSection.astro';
 import JourneySection from '../components/sections/JourneySection.astro';
 import PlacementSection from '../components/sections/PlacementSection.astro';
@@ -16,6 +15,7 @@ import CtaSection from '../components/sections/CtaSection.astro';
 
 import MidPageCta from '../components/common/MidPageCta.astro';
 import ExitIntentPopup from '../components/common/ExitIntentPopup.astro';
+import PlacementReportPopup from '../components/common/PlacementReportPopup.astro';
 import WhatsAppButton from '../components/common/WhatsAppButton.astro';
 ---
 
@@ -31,7 +31,6 @@ import WhatsAppButton from '../components/common/WhatsAppButton.astro';
 
     <!-- 2. Why Upgrade Infotech (Trust/Credibility + Practising Consultants) -->
     <FeaturesSection />
-    <InstructorSection />
 
     <!-- 3. Pick Your SAP Module (Curriculum Section) -->
     <CurriculumSection />
@@ -62,6 +61,26 @@ import WhatsAppButton from '../components/common/WhatsAppButton.astro';
   </main>
 
   <Footer />
+
+  <!-- Client-side Popups & Floating Buttons -->
   <ExitIntentPopup />
+  <PlacementReportPopup />
   <WhatsAppButton />
 </Layout>
+
+<style is:global>
+  @keyframes btn-shimmer {
+    0% { transform: translateX(-150%) skewX(-15deg); }
+    100% { transform: translateX(250%) skewX(-15deg); }
+  }
+  .animate-shimmer-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.15) 80%, transparent);
+    animation: btn-shimmer 3s ease-in-out infinite;
+  }
+</style>
