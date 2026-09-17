@@ -38,8 +38,8 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
       <div class="lg:col-span-7 space-y-3.5 sm:space-y-4 text-left">
         
         <!-- Pre-heading Tagline -->
-        <div class="text-[11px] sm:text-xs font-extrabold tracking-wider text-primary uppercase flex items-center gap-1.5">
-          <span class="w-1.5 h-1.5 rounded-full bg-primary" aria-hidden="true"></span>
+        <div class="text-xs sm:text-sm md:text-base font-black tracking-wider text-primary uppercase flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary" aria-hidden="true"></span>
           <span>SAP AUTHORISED TRAINING PARTNER · MUMBAI</span>
         </div>
 
@@ -114,25 +114,29 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
       </div>
 
       <!-- Right Column: 2-Field High-Converting Lead Capture Form Card -->
-      <div class="lg:col-span-5">
-        <div id="enroll" class="bg-white text-heading rounded-2xl shadow-xl border border-border overflow-hidden relative">
+      <div class="lg:col-span-5 relative mt-4 lg:mt-0">
+        
+        <!-- Professional Form Card -->
+        <div id="enroll" class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-200 overflow-hidden relative transform transition-all duration-300 hover:shadow-[0_20px_40px_rgba(102,51,153,0.12)] hover:-translate-y-1">
           
-          <!-- Top Primary Accent Line -->
-          <div class="h-1.5 bg-primary" aria-hidden="true"></div>
+          <!-- Top Accent Line -->
+          <div class="h-1.5 bg-gradient-to-r from-primary to-accent" aria-hidden="true"></div>
 
           <!-- Lead Form Body -->
-          <div class="p-5 sm:p-6 bg-white">
-            <div class="flex items-center justify-between mb-1">
-              <h2 class="text-lg sm:text-xl font-black text-heading tracking-tight text-left">
-                Get Your Free Career Roadmap
-              </h2>
-              <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-primary/10 text-primary uppercase border border-primary/20">
+          <div class="p-6 sm:p-8">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h2 class="text-xl sm:text-2xl font-black text-heading tracking-tight text-left flex items-center gap-2">
+                  <span class="text-primary text-xl">⚡</span> Free Career Roadmap
+                </h2>
+                <p class="text-xs sm:text-sm text-body mt-1.5 text-left font-medium">
+                  Get fees, batch dates & eligibility structure in 30 mins.
+                </p>
+              </div>
+              <span class="text-[10px] font-extrabold px-2.5 py-1 rounded-md bg-slate-100 text-slate-500 uppercase border border-slate-200 whitespace-nowrap shrink-0 mt-1">
                 Step 1 of 2
               </span>
             </div>
-            <p class="text-xs text-body mb-4 text-left font-medium">
-              Get fees, batch dates & eligibility structure in 30 mins.
-            </p>
 
             <form id="hero-lead-form" action="/api/lead" method="POST" class="space-y-3">
               <!-- Step 1 Fields: Name + Phone -->
@@ -383,13 +387,13 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
               <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold">✓</div>
               <h3 class="text-xl font-black text-heading">Career Roadmap Reserved!</h3>
               <p class="text-xs text-body font-semibold leading-relaxed">
-                Thank you <strong>\${nameVal}</strong>! Your details have been recorded in our CRM. Our senior SAP counselor will call you at <strong>\${phoneVal}</strong> within 30 minutes.
+                Thank you <strong>` + nameVal + `</strong>! Your details have been recorded in our CRM. Our senior SAP counselor will call you at <strong>` + phoneVal + `</strong> within 30 minutes.
               </p>
               
               <div class="flex flex-col gap-2 mt-3">
                 <a
-                  href="/placement_report.pdf"
-                  download="Placement_Report.pdf"
+                  href="/brochure.pdf"
+                  download="Upgrade_Infotech_Brochure.pdf"
                   class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-black rounded-xl shadow-md transition-all"
                 >
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
@@ -397,7 +401,7 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
                 </a>
 
                 <a
-                  href="https://wa.me/917021348186?text=Hi%20Upgrade%20Infotech,%20I%20just%20submitted%20my%20enquiry%20for%20\${encodeURIComponent(courseVal)}"
+                  href="https://wa.me/917021348186?text=Hi%20Upgrade%20Infotech,%20I%20just%20submitted%20my%20enquiry%20for%20` + encodeURIComponent(courseVal) + `"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-black rounded-xl shadow-md transition-all"
