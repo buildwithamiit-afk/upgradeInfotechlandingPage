@@ -381,36 +381,8 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
             source: 'Upgrade Infotech Landing Page'
           });
 
-          // Render Success Thank You Card
-          form.innerHTML = `
-            <div class="py-6 px-3 text-center space-y-3 bg-primary-light rounded-2xl border border-primary/20">
-              <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold">✓</div>
-              <h3 class="text-xl font-black text-heading">Career Roadmap Reserved!</h3>
-              <p class="text-xs text-body font-semibold leading-relaxed">
-                Thank you <strong>` + nameVal + `</strong>! Your details have been recorded in our CRM. Our senior SAP counselor will call you at <strong>` + phoneVal + `</strong> within 30 minutes.
-              </p>
-              
-              <div class="flex flex-col gap-2 mt-3">
-                <a
-                  href="/brochure.pdf"
-                  download="Upgrade_Infotech_Brochure.pdf"
-                  class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-black rounded-xl shadow-md transition-all"
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                  <span>Download Placement Report PDF</span>
-                </a>
-
-                <a
-                  href="https://wa.me/917021348186?text=Hi%20Upgrade%20Infotech,%20I%20just%20submitted%20my%20enquiry%20for%20` + encodeURIComponent(courseVal) + `"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-black rounded-xl shadow-md transition-all"
-                >
-                  <span>Chat Now on WhatsApp →</span>
-                </a>
-              </div>
-            </div>
-          `;
+          // Redirect to Thank You page
+          window.location.href = '/thank-you';
         }
       });
     }

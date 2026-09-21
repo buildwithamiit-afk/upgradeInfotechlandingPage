@@ -1,0 +1,221 @@
+---
+// Client-side Get Job Sticky Button & Popup Modal
+---
+
+<!-- Sticky Side Button -->
+<button
+  id="get-job-sticky-btn"
+  class="fixed left-0 top-[60%] -translate-y-1/2 z-40 bg-gradient-to-r from-primary to-accent hover:from-primary-hover hover:to-accent-hover text-white pr-5 pl-3 py-3 shadow-[0_4px_20px_rgba(91,0,179,0.4)] transition-all cursor-pointer flex items-center gap-3 group border-y border-r border-white/20"
+  style="clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);"
+  aria-label="Open Job Form"
+>
+  <!-- Icon Wrapper -->
+  <div class="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center shrink-0 border border-white/40 shadow-inner group-hover:bg-white/30 transition-colors">
+    <svg class="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+    </svg>
+  </div>
+  <div class="flex flex-col items-start leading-none pr-1">
+    <span class="text-[13px] font-medium text-white/90 mb-0.5">Get Me</span>
+    <span class="text-[22px] font-black tracking-widest text-white drop-shadow-sm">JOB</span>
+  </div>
+</button>
+
+<!-- Full Screen Modal -->
+<div
+  id="get-job-modal"
+  class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/70 backdrop-blur-sm p-4 hidden opacity-0 transition-opacity duration-300"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="get-job-title"
+>
+  <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full overflow-y-auto overflow-x-hidden relative transform scale-95 transition-transform duration-300 flex flex-col md:flex-row max-h-[90vh]">
+    
+    <!-- Close Button -->
+    <button
+      id="get-job-close"
+      class="absolute top-3 right-3 z-20 bg-[#f46b14] hover:bg-[#d65a0d] text-white w-8 h-8 rounded-md flex items-center justify-center transition-colors focus:outline-none shadow-sm"
+      aria-label="Close popup"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+
+    <!-- Left Side: Image Poster -->
+    <div class="w-full md:w-1/2 bg-slate-50 relative overflow-hidden flex items-center justify-center h-40 sm:h-48 md:h-auto shrink-0 border-b md:border-b-0 md:border-r border-slate-100">
+      <img src="/getajobposter.png" alt="Get a Job Opportunities" class="w-full h-full object-contain md:object-cover p-2 md:p-0" />
+    </div>
+
+    <!-- Right Side: Form -->
+    <div class="w-full md:w-1/2 p-6 sm:p-8 md:p-10 bg-white overflow-y-auto">
+      <h3 id="get-job-title" class="text-2xl font-black text-[#f46b14] text-center mb-8">
+        Request Callback
+      </h3>
+
+      <form id="get-job-form" class="space-y-4">
+        <!-- Full Name -->
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg>
+          </div>
+          <input type="text" id="getjob-name" required placeholder="Enter Full Name" class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#f46b14]/30 focus:border-[#f46b14] outline-none transition-all text-slate-800" />
+        </div>
+
+        <!-- Email -->
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+          </div>
+          <input type="email" id="getjob-email" required placeholder="Enter Your Email" class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#f46b14]/30 focus:border-[#f46b14] outline-none transition-all text-slate-800" />
+        </div>
+
+        <!-- Phone -->
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+          </div>
+          <input type="tel" id="getjob-phone" required pattern="[0-9]{10}" maxlength="10" placeholder="Contact Number" class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#f46b14]/30 focus:border-[#f46b14] outline-none transition-all text-slate-800" />
+        </div>
+
+        <!-- City / Graduation Year -->
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd" /></svg>
+          </div>
+          <input type="text" id="getjob-city-year" required placeholder="Enter City / Graduation Year" class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#f46b14]/30 focus:border-[#f46b14] outline-none transition-all text-slate-800" />
+        </div>
+
+        <!-- Branch -->
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.221 4.624 1 1 0 01-.89.89 8.969 8.969 0 00-6.721 1.662z" /></svg>
+          </div>
+          <select id="getjob-branch" required class="w-full h-12 pl-11 pr-10 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#f46b14]/30 focus:border-[#f46b14] outline-none transition-all text-slate-800 appearance-none bg-white cursor-pointer invalid:text-slate-500" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20stroke%3D%22%2364748b%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2010%2013%2014%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.2em;">
+            <option value="" disabled selected>Choose Branch</option>
+            <option value="Andheri">Andheri</option>
+            <option value="Ghatkopar">Ghatkopar</option>
+            <option value="Vashi">Vashi</option>
+            <option value="Online">Live Online</option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          id="getjob-submit-btn"
+          class="w-full h-12 mt-6 flex justify-center items-center rounded-full font-black text-white text-base tracking-wide bg-gradient-to-r from-[#e35907] to-[#f46b14] hover:from-[#d65a0d] hover:to-[#e35907] transition-all shadow-md focus:outline-none hover:shadow-lg transform hover:-translate-y-0.5"
+        >
+          Talk to Our Counsellor
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* 
+    Total duration: 5 seconds
+    0% to 40% (2s): Hidden off-screen
+    45% to 90% (~2s): Fully visible
+    95% to 100% (0.25s): Sliding out
+  */
+  @keyframes periodic-slide {
+    0%, 40% { transform: translateY(-50%) translateX(-100%); }
+    45%, 90% { transform: translateY(-50%) translateX(0); }
+    100% { transform: translateY(-50%) translateX(-100%); }
+  }
+  
+  #get-job-sticky-btn {
+    transform: translateY(-50%) translateX(-100%);
+    animation: periodic-slide 5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* When hovered, pause animation and ensure it stays visible */
+  #get-job-sticky-btn:hover {
+    animation: none;
+    transform: translateY(-50%) translateX(0) scale(1.03) !important;
+    box-shadow: 0 6px 30px rgba(91,0,179,0.6) !important;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('get-job-modal');
+    const stickyBtn = document.getElementById('get-job-sticky-btn');
+    const closeBtn = document.getElementById('get-job-close');
+    const form = document.getElementById('get-job-form');
+    const submitBtn = document.getElementById('getjob-submit-btn');
+
+    const openModal = () => {
+      if (modal) {
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+          modal.classList.remove('opacity-0');
+          modal.firstElementChild.classList.remove('scale-95');
+          modal.firstElementChild.classList.add('scale-100');
+        }, 10);
+      }
+    };
+
+    const closeModal = () => {
+      if (modal) {
+        modal.classList.add('opacity-0');
+        modal.firstElementChild.classList.remove('scale-100');
+        modal.firstElementChild.classList.add('scale-95');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 300);
+      }
+    };
+
+    if (stickyBtn) stickyBtn.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+    }
+
+    if (form && submitBtn) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const nameVal = document.getElementById('getjob-name').value.trim();
+        const emailVal = document.getElementById('getjob-email').value.trim();
+        const phoneVal = document.getElementById('getjob-phone').value.trim();
+        const cityYearVal = document.getElementById('getjob-city-year').value.trim();
+        const branchVal = document.getElementById('getjob-branch').value;
+
+        if (!nameVal || phoneVal.length < 10 || !branchVal || !emailVal) {
+          alert('Please fill out all required fields.');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Processing...';
+
+        try {
+          await fetch('https://dashboard.conceptninjas.com/services/web/syncLead/NUo5VXowRTYwZU1xdHVmdUw1WlQvdz09', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: nameVal,
+              email: emailVal,
+              mobile: phoneVal,
+              location: cityYearVal + ' (Pref: ' + branchVal + ')',
+              course: 'Get Job Request Callback',
+              message: 'Lead from Sticky Get Job Button',
+              source: 'Get Job Popup'
+            })
+          });
+        } catch (err) {
+          console.error('CRM sync error:', err);
+        }
+
+        // Redirect to Thank You page upon completion
+        window.location.href = '/thank-you';
+      });
+    }
+  });
+</script>
