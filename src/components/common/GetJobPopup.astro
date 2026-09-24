@@ -49,11 +49,24 @@
 
     <!-- Right Side: Form -->
     <div class="w-full md:w-1/2 p-6 sm:p-8 md:p-10 bg-white overflow-y-auto">
-      <h3 id="get-job-title" class="text-2xl font-black text-[#f46b14] text-center mb-8">
+      <div class="flex justify-center mb-4">
+        <img src="/main_logo.png" alt="Upgrade Infotech Logo" class="h-9 sm:h-11 w-auto object-contain" />
+      </div>
+      <h3 id="get-job-title" class="text-2xl font-black text-[#f46b14] text-center mb-6">
         Request Callback
       </h3>
 
       <form id="get-job-form" class="space-y-4">
+        <!-- Invisible Honeypot Field for Anti-Bot Protection -->
+        <input
+          type="text"
+          name="website_url"
+          id="getjob-website-url"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+          class="absolute -left-[9999px] opacity-0 pointer-events-none h-0 w-0"
+        />
         <!-- Full Name -->
         <div class="relative">
           <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
@@ -144,9 +157,17 @@
     const stickyBtn = document.getElementById('get-job-sticky-btn');
     const closeBtn = document.getElementById('get-job-close');
     const form = document.getElementById('get-job-form');
+    const honeypotInput = document.getElementById('getjob-website-url');
     const submitBtn = document.getElementById('getjob-submit-btn');
 
+    let modalOpenTime = Date.now();
+    const MIN_SUBMISSION_TIME_MS = 3000;
+    const RATE_LIMIT_WINDOW_MS = 30000;
+    let isSubmitting = false;
+    const originalBtnText = submitBtn ? submitBtn.textContent : 'Talk to Our Counsellor';
+
     const openModal = () => {
+      modalOpenTime = Date.now();
       if (modal) {
         modal.classList.remove('hidden');
         setTimeout(() => {
@@ -180,18 +201,59 @@
     if (form && submitBtn) {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        const nameVal = document.getElementById('getjob-name').value.trim();
-        const emailVal = document.getElementById('getjob-email').value.trim();
-        const phoneVal = document.getElementById('getjob-phone').value.trim();
-        const cityYearVal = document.getElementById('getjob-city-year').value.trim();
-        const branchVal = document.getElementById('getjob-branch').value;
 
-        if (!nameVal || phoneVal.length < 10 || !branchVal || !emailVal) {
-          alert('Please fill out all required fields.');
+        // 1. Submission Lock: Prevent duplicate submissions
+        if (isSubmitting) return;
+
+        // 2. Honeypot check: If filled, silently drop and simulate completion
+        if (honeypotInput && honeypotInput.value.trim() !== '') {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Processing...';
+          setTimeout(() => {
+            window.location.href = '/thank-you';
+          }, 800);
           return;
         }
 
+        // 3. Minimum interaction time check: Humans take > 3 seconds to complete the form
+        const elapsedTime = Date.now() - modalOpenTime;
+        if (elapsedTime < MIN_SUBMISSION_TIME_MS) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Processing...';
+          setTimeout(() => {
+            window.location.href = '/thank-you';
+          }, 1000);
+          return;
+        }
+
+        // 4. Client-side Rate Limiting (30s cooldown per browser)
+        try {
+          const lastSubmission = localStorage.getItem('lead_form_last_submission');
+          if (lastSubmission && (Date.now() - parseInt(lastSubmission, 10)) < RATE_LIMIT_WINDOW_MS) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+            setTimeout(() => {
+              window.location.href = '/thank-you';
+            }, 600);
+            return;
+          }
+        } catch (storageErr) {}
+
+        // 5. Validation
+        const nameVal = document.getElementById('getjob-name')?.value.trim().slice(0, 100) || '';
+        const emailVal = document.getElementById('getjob-email')?.value.trim().slice(0, 100) || '';
+        const rawPhone = document.getElementById('getjob-phone')?.value.trim() || '';
+        const phoneDigits = rawPhone.replace(/\D/g, '');
+        const cityYearVal = document.getElementById('getjob-city-year')?.value.trim().slice(0, 100) || '';
+        const branchVal = document.getElementById('getjob-branch')?.value || '';
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (nameVal.length < 2 || phoneDigits.length < 10 || !emailRegex.test(emailVal) || !branchVal) {
+          alert('Please fill out all required fields with a valid email and 10-digit mobile number.');
+          return;
+        }
+
+        isSubmitting = true;
         submitBtn.disabled = true;
         submitBtn.textContent = 'Processing...';
 
@@ -202,19 +264,27 @@
             body: JSON.stringify({
               name: nameVal,
               email: emailVal,
-              mobile: phoneVal,
+              mobile: phoneDigits.slice(-10),
               location: cityYearVal + ' (Pref: ' + branchVal + ')',
               course: 'Get Job Request Callback',
               message: 'Lead from Sticky Get Job Button',
               source: 'Get Job Popup'
             })
           });
+
+          try {
+            localStorage.setItem('lead_form_last_submission', Date.now().toString());
+          } catch (storageErr) {}
+
+          // Redirect to Thank You page upon completion
+          window.location.href = '/thank-you';
         } catch (err) {
           console.error('CRM sync error:', err);
+          isSubmitting = false;
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+          alert('Something went wrong while submitting. Please try again or call us directly.');
         }
-
-        // Redirect to Thank You page upon completion
-        window.location.href = '/thank-you';
       });
     }
   });

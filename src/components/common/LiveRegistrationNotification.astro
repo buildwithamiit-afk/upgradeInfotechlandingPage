@@ -1,0 +1,126 @@
+---
+// Live Blinking Social Proof Notification Component (Recent Course Registrations)
+---
+
+<div
+  id="live-registration-toast"
+  class="fixed bottom-20 left-3 sm:bottom-6 sm:left-6 z-40 max-w-[340px] sm:max-w-sm bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-2xl p-3 sm:p-3.5 shadow-[0_10px_35px_rgba(0,0,0,0.12)] transform -translate-x-full opacity-0 pointer-events-none transition-all duration-500 ease-out"
+  role="status"
+  aria-live="polite"
+>
+  <div class="flex items-start gap-3 relative">
+    
+    <!-- User Avatar with Live Blinking Status Dot -->
+    <div class="relative shrink-0 mt-0.5">
+      <div id="live-toast-avatar" class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-accent text-white flex items-center justify-center font-black text-sm shadow-sm">
+        PS
+      </div>
+      <!-- Blinking Green Dot -->
+      <span class="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-white"></span>
+      </span>
+    </div>
+
+    <!-- Notification Content -->
+    <div class="flex-1 pr-5 leading-snug">
+      <p class="text-xs sm:text-sm text-slate-800">
+        <strong id="live-toast-name" class="font-extrabold text-heading">Pooja S.</strong> from 
+        <span id="live-toast-city" class="font-bold text-primary">Andheri</span>
+      </p>
+      <p class="text-xs font-semibold text-slate-600 mt-0.5">
+        just enrolled in <span id="live-toast-course" class="font-black text-accent">SAP FICO</span>
+      </p>
+      <div class="flex items-center gap-1.5 mt-1 text-[10px] font-bold text-slate-400">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        <span id="live-toast-time">Just now</span>
+        <span>•</span>
+        <span class="text-emerald-600">Verified Enrollment</span>
+      </div>
+    </div>
+
+    <!-- Close / Dismiss Button -->
+    <button
+      id="live-toast-close"
+      type="button"
+      class="absolute -top-1.5 -right-1 text-slate-400 hover:text-slate-700 p-1 rounded-md transition-colors"
+      aria-label="Dismiss notification"
+    >
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toast = document.getElementById('live-registration-toast');
+    const closeBtn = document.getElementById('live-toast-close');
+    const avatarEl = document.getElementById('live-toast-avatar');
+    const nameEl = document.getElementById('live-toast-name');
+    const cityEl = document.getElementById('live-toast-city');
+    const courseEl = document.getElementById('live-toast-course');
+    const timeEl = document.getElementById('live-toast-time');
+
+    if (!toast) return;
+
+    // Realistic Indian Candidates, Cities, and SAP Programs
+    const registrations = [
+      { name: "Pooja Sharma", initials: "PS", city: "Andheri, Mumbai", course: "SAP FICO", time: "2 mins ago" },
+      { name: "Rahul Verma", initials: "RV", city: "Vashi, Navi Mumbai", course: "SAP MM", time: "5 mins ago" },
+      { name: "Neha Patil", initials: "NP", city: "Thane", course: "SAP HR / HCM", time: "8 mins ago" },
+      { name: "Amit Kulkarni", initials: "AK", city: "Ghatkopar, Mumbai", course: "SAP SD", time: "Just now" },
+      { name: "Priya Nair", initials: "PN", city: "Borivali, Mumbai", course: "SAP FICO", time: "3 mins ago" },
+      { name: "Rohan Deshmukh", initials: "RD", city: "Dadar, Mumbai", course: "SAP ABAP", time: "11 mins ago" },
+      { name: "Sneha Joshi", initials: "SJ", city: "Panvel, Navi Mumbai", course: "SAP MM", time: "6 mins ago" },
+      { name: "Aditya Mehta", initials: "AM", city: "Mulund, Mumbai", course: "SAP FICO", time: "4 mins ago" },
+      { name: "Ananya Iyer", initials: "AI", city: "Kandivali, Mumbai", course: "SAP SD", time: "14 mins ago" },
+      { name: "Vikrant Shinde", initials: "VS", city: "Kalyan, Thane", course: "SAP ABAP", time: "Just now" }
+    ];
+
+    let currentIndex = 0;
+    let isDismissed = false;
+    let timerId = null;
+
+    function showNotification() {
+      if (isDismissed || !toast) return;
+
+      const data = registrations[currentIndex];
+      if (avatarEl) avatarEl.textContent = data.initials;
+      if (nameEl) nameEl.textContent = data.name;
+      if (cityEl) cityEl.textContent = data.city;
+      if (courseEl) courseEl.textContent = data.course;
+      if (timeEl) timeEl.textContent = data.time;
+
+      // Slide in
+      toast.classList.remove('-translate-x-full', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-x-0', 'opacity-100', 'pointer-events-auto');
+
+      // Stay visible for 5.5 seconds, then hide
+      setTimeout(() => {
+        if (isDismissed || !toast) return;
+        toast.classList.remove('translate-x-0', 'opacity-100', 'pointer-events-auto');
+        toast.classList.add('-translate-x-full', 'opacity-0', 'pointer-events-none');
+
+        // Move to next registration after 6 seconds pause
+        currentIndex = (currentIndex + 1) % registrations.length;
+        timerId = setTimeout(showNotification, 6500);
+      }, 5500);
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        isDismissed = true;
+        if (timerId) clearTimeout(timerId);
+        toast.classList.remove('translate-x-0', 'opacity-100', 'pointer-events-auto');
+        toast.classList.add('-translate-x-full', 'opacity-0', 'pointer-events-none');
+      });
+    }
+
+    // Initial trigger after 3.5 seconds
+    timerId = setTimeout(showNotification, 3500);
+  });
+</script>

@@ -44,6 +44,16 @@
       </p>
 
       <form id="exit-intent-form" action="/api/lead" method="POST" class="space-y-3">
+        <!-- Invisible Honeypot Field for Anti-Bot Protection -->
+        <input
+          type="text"
+          name="website_url"
+          id="exit-modal-website-url"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+          class="absolute -left-[9999px] opacity-0 pointer-events-none h-0 w-0"
+        />
         <input
           type="text"
           id="exit-modal-name"
@@ -87,13 +97,21 @@
     const exitForm = document.getElementById('exit-intent-form');
     const exitName = document.getElementById('exit-modal-name');
     const exitPhone = document.getElementById('exit-modal-phone');
+    const honeypotInput = document.getElementById('exit-modal-website-url');
     const exitSubmitBtn = document.getElementById('exit-modal-submit-btn');
     let hasTriggered = false;
+
+    let modalOpenTime = Date.now();
+    const MIN_SUBMISSION_TIME_MS = 3000;
+    const RATE_LIMIT_WINDOW_MS = 30000;
+    let isSubmitting = false;
+    const originalBtnText = exitSubmitBtn ? exitSubmitBtn.textContent : 'Download Free Syllabus PDF →';
 
     // Trigger on desktop mouseleave (leaving viewport top)
     document.addEventListener('mouseleave', (e) => {
       if (e.clientY <= 10 && !hasTriggered && modal) {
         hasTriggered = true;
+        modalOpenTime = Date.now();
         modal.classList.remove('hidden');
         setTimeout(() => {
           modal.classList.remove('opacity-0');
@@ -122,14 +140,55 @@
     if (exitForm && exitSubmitBtn) {
       exitForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const nameVal = exitName ? exitName.value.trim() : '';
-        const phoneVal = exitPhone ? exitPhone.value.trim() : '';
 
-        if (nameVal === '' || phoneVal.length < 10) {
-          alert('Please enter your full name and a valid 10-digit mobile number.');
+        // 1. Submission Lock: Prevent duplicate submissions
+        if (isSubmitting) return;
+
+        // 2. Honeypot check: If filled, silently drop and simulate completion
+        if (honeypotInput && honeypotInput.value.trim() !== '') {
+          exitSubmitBtn.disabled = true;
+          exitSubmitBtn.textContent = 'Sending...';
+          setTimeout(() => {
+            window.location.href = '/thank-you';
+          }, 800);
           return;
         }
 
+        // 3. Minimum interaction time check: Humans take > 3 seconds to complete the form
+        const elapsedTime = Date.now() - modalOpenTime;
+        if (elapsedTime < MIN_SUBMISSION_TIME_MS) {
+          exitSubmitBtn.disabled = true;
+          exitSubmitBtn.textContent = 'Sending...';
+          setTimeout(() => {
+            window.location.href = '/thank-you';
+          }, 1000);
+          return;
+        }
+
+        // 4. Client-side Rate Limiting (30s window per browser)
+        try {
+          const lastSubmission = localStorage.getItem('lead_form_last_submission');
+          if (lastSubmission && (Date.now() - parseInt(lastSubmission, 10)) < RATE_LIMIT_WINDOW_MS) {
+            exitSubmitBtn.disabled = true;
+            exitSubmitBtn.textContent = 'Sending...';
+            setTimeout(() => {
+              window.location.href = '/thank-you';
+            }, 600);
+            return;
+          }
+        } catch (storageErr) {}
+
+        // 5. Validation
+        const nameVal = exitName ? exitName.value.trim().slice(0, 100) : '';
+        const rawPhone = exitPhone ? exitPhone.value.trim() : '';
+        const phoneDigits = rawPhone.replace(/\D/g, '');
+
+        if (nameVal.length < 2 || phoneDigits.length < 10) {
+          alert('Please enter your full name (at least 2 characters) and a valid 10-digit mobile number.');
+          return;
+        }
+
+        isSubmitting = true;
         exitSubmitBtn.disabled = true;
         exitSubmitBtn.textContent = 'Sending...';
 
@@ -140,19 +199,27 @@
             body: JSON.stringify({
               name: nameVal,
               email: 'info@upgradeinfotech.com',
-              mobile: phoneVal,
+              mobile: phoneDigits.slice(-10),
               course: 'SAP Course Syllabus PDF',
               location: 'Andheri',
               message: 'Exit Intent Brochure Download Lead',
               source: 'Exit Intent Popup'
             })
           });
-        } catch (err) {
-          console.error(err);
-        }
 
-        // Redirect to Thank You page
-        window.location.href = '/thank-you';
+          try {
+            localStorage.setItem('lead_form_last_submission', Date.now().toString());
+          } catch (storageErr) {}
+
+          // Redirect to Thank You page
+          window.location.href = '/thank-you';
+        } catch (err) {
+          console.error('Submission failed:', err);
+          isSubmitting = false;
+          exitSubmitBtn.disabled = false;
+          exitSubmitBtn.textContent = originalBtnText;
+          alert('Something went wrong while submitting. Please try again or call us directly.');
+        }
       });
     }
   });

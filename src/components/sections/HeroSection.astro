@@ -23,7 +23,7 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
       <div class="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-primary-light border border-border text-[11px] sm:text-xs font-bold text-heading shadow-xs text-center">
         <span class="w-2 h-2 rounded-full bg-accent animate-pulse shrink-0" aria-hidden="true"></span>
         <span class="px-2 py-0.5 rounded-full bg-accent text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider">
-          Monsoon Offer
+          Festive Offer
         </span>
         <span class="font-bold text-heading">
           Only <strong class="text-accent font-black text-xs sm:text-sm">4 seats left</strong> in this batch
@@ -40,7 +40,7 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
         <!-- Pre-heading Tagline -->
         <div class="text-xs sm:text-sm md:text-base font-black tracking-wider text-primary uppercase flex items-center gap-1.5">
           <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary" aria-hidden="true"></span>
-          <span>SAP AUTHORISED TRAINING PARTNER · MUMBAI</span>
+          <span>SAP AUTHORISED TRAINING · MUMBAI</span>
         </div>
 
         <!-- H1 Heading -->
@@ -89,10 +89,15 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
             <!-- Primary CTA: Solid Primary Fill -->
             <button
               type="button"
-              class="placement-popup-trigger animate-shimmer-btn overflow-hidden relative w-full sm:w-auto inline-flex items-center justify-center min-h-[44px] px-6 py-2 text-sm font-bold text-white bg-primary hover:bg-primary-hover active:bg-primary rounded-lg shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary text-center group"
+              class="placement-popup-trigger animate-shimmer-btn overflow-hidden relative w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-6 py-2.5 text-sm font-bold text-white bg-primary hover:bg-primary-hover active:bg-primary rounded-lg shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary text-center group cursor-pointer"
             >
-              <svg class="w-4 h-4 mr-1.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-              <span>Free Consultation</span>
+              <!-- Highlighted Phone Icon Circular Badge -->
+              <span class="w-6 h-6 rounded-full bg-white/20 text-white flex items-center justify-center mr-2 shadow-xs shrink-0 animate-pulse">
+                <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </span>
+              <span>Book a Free Consultation</span>
             </button>
 
             <!-- Secondary CTA: Outline/Ghost Button -->
@@ -133,14 +138,25 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
                   Get fees, batch dates & eligibility structure in 30 mins.
                 </p>
               </div>
-              <span class="text-[10px] font-extrabold px-2.5 py-1 rounded-md bg-white/20 sm:bg-slate-100 text-white sm:text-slate-500 uppercase border border-white/30 sm:border-slate-200 whitespace-nowrap shrink-0 mt-1">
-                Step 1 of 2
+              <span class="text-[10px] font-extrabold px-2.5 py-1 rounded-md bg-white/20 sm:bg-emerald-50 text-white sm:text-emerald-700 uppercase border border-white/30 sm:border-emerald-200 whitespace-nowrap shrink-0 mt-1 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 sm:bg-emerald-500 animate-pulse"></span> Free Access
               </span>
             </div>
 
             <form id="hero-lead-form" action="/api/lead" method="POST" class="space-y-3">
-              <!-- Step 1 Fields: Name + Phone -->
-              <div id="form-step-1" class="space-y-3">
+              <!-- Invisible Honeypot Field for Anti-Bot Protection -->
+              <input
+                type="text"
+                name="website_url"
+                id="hero-lead-website-url"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+                class="absolute -left-[9999px] opacity-0 pointer-events-none h-0 w-0"
+              />
+
+              <!-- All 4 Fields in a Clean Balanced 2-Column Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                 <!-- Full Name Input -->
                 <div>
                   <label for="hero-lead-name" class="block text-[11px] font-extrabold uppercase text-white sm:text-heading mb-1">
@@ -151,8 +167,8 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
                     id="hero-lead-name"
                     name="name"
                     required
-                    placeholder="Enter your full name"
-                    class="w-full h-11 px-3.5 rounded-xl border border-white/20 sm:border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-white sm:focus:ring-primary focus:border-white sm:focus:border-primary focus:outline-none transition-all bg-white text-heading placeholder:text-slate-400"
+                    placeholder="Enter full name"
+                    class="w-full h-10 sm:h-11 px-3.5 rounded-xl border border-white/20 sm:border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-white sm:focus:ring-primary focus:border-white sm:focus:border-primary focus:outline-none transition-all bg-white text-heading placeholder:text-slate-400"
                   />
                 </div>
 
@@ -169,43 +185,43 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
                     pattern="[0-9]{10}"
                     maxlength="10"
                     placeholder="10-digit mobile number"
-                    class="w-full h-11 px-3.5 rounded-xl border border-white/20 sm:border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-white sm:focus:ring-primary focus:border-white sm:focus:border-primary focus:outline-none transition-all bg-white text-heading placeholder:text-slate-400"
+                    class="w-full h-10 sm:h-11 px-3.5 rounded-xl border border-white/20 sm:border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-white sm:focus:ring-primary focus:border-white sm:focus:border-primary focus:outline-none transition-all bg-white text-heading placeholder:text-slate-400"
                   />
                 </div>
-              </div>
 
-              <!-- Step 2 Fields: Location & Course (Progressive Disclosure) -->
-              <div id="form-step-2" class="space-y-3 hidden">
+                <!-- Course Selection -->
+                <div>
+                  <label for="hero-lead-course" class="block text-[11px] font-extrabold uppercase text-white sm:text-heading mb-1">
+                    Course Interested In <span class="text-accent">*</span>
+                  </label>
+                  <select
+                    id="hero-lead-course"
+                    name="course"
+                    class="w-full h-10 sm:h-11 px-3 rounded-xl border border-white/20 sm:border-slate-300 text-xs sm:text-sm font-semibold focus:ring-2 focus:ring-white sm:focus:ring-primary focus:border-white sm:focus:border-primary focus:outline-none transition-all bg-white text-heading cursor-pointer"
+                  >
+                    <option value="sap-fico" selected>SAP FICO (Finance)</option>
+                    <option value="sap-mm">SAP MM (Materials)</option>
+                    <option value="sap-sd">SAP SD (Sales)</option>
+                    <option value="sap-hr">SAP HR / HCM</option>
+                    <option value="sap-abap">SAP ABAP</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <!-- Preferred Location -->
                 <div>
                   <label for="hero-lead-location" class="block text-[11px] font-extrabold uppercase text-white sm:text-heading mb-1">
-                    Preferred Location
+                    Preferred Location <span class="text-accent">*</span>
                   </label>
                   <select
                     id="hero-lead-location"
                     name="location"
-                    class="w-full h-11 px-3.5 rounded-xl border border-white/20 sm:border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-white sm:focus:ring-primary focus:border-white sm:focus:border-primary focus:outline-none transition-all bg-white text-heading cursor-pointer"
+                    class="w-full h-10 sm:h-11 px-3 rounded-xl border border-white/20 sm:border-slate-300 text-xs sm:text-sm font-semibold focus:ring-2 focus:ring-white sm:focus:ring-primary focus:border-white sm:focus:border-primary focus:outline-none transition-all bg-white text-heading cursor-pointer"
                   >
                     <option value="andheri" selected>Andheri Classroom</option>
                     <option value="ghatkopar">Ghatkopar Classroom</option>
                     <option value="vashi">Vashi Classroom</option>
                     <option value="live-online">Live Online Batch</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label for="hero-lead-course" class="block text-[11px] font-extrabold uppercase text-white sm:text-heading mb-1">
-                    Course Interested In
-                  </label>
-                  <select
-                    id="hero-lead-course"
-                    name="course"
-                    class="w-full h-11 px-3.5 rounded-xl border border-white/20 sm:border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-white sm:focus:ring-primary focus:border-white sm:focus:border-primary focus:outline-none transition-all bg-white text-heading cursor-pointer"
-                  >
-                    <option value="sap-fico" selected>SAP FICO (Finance & Control)</option>
-                    <option value="sap-mm">SAP MM (Materials Management)</option>
-                    <option value="sap-sd">SAP SD (Sales & Distribution)</option>
-                    <option value="sap-hr">SAP HR / HCM</option>
-                    <option value="sap-abap">SAP ABAP Development</option>
                   </select>
                 </div>
               </div>
@@ -215,7 +231,7 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
                 <svg class="w-3.5 h-3.5 text-white sm:text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                 </svg>
-                <span>100% Confidential · No Spam Calls · Call within 30 mins</span>
+                <span>100% Confidential · No Spam · Response in 30 mins</span>
               </div>
 
               <!-- Value-Packed Primary Submit CTA Button -->
@@ -302,19 +318,23 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
   </div>
 </section>
 
-<!-- Client Script for Progressive 2-Step Form Reveal & CRM API Sync -->
+<!-- Client Script for Lead Form CRM API Sync with Invisible Anti-Bot Protection -->
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('hero-lead-form');
-    const step2 = document.getElementById('form-step-2');
     const nameInput = document.getElementById('hero-lead-name');
     const phoneInput = document.getElementById('hero-lead-phone');
     const locationInput = document.getElementById('hero-lead-location');
     const courseInput = document.getElementById('hero-lead-course');
+    const honeypotInput = document.getElementById('hero-lead-website-url');
     const submitBtn = document.getElementById('hero-form-submit-btn');
 
     const CRM_API_URL = 'https://dashboard.conceptninjas.com/services/web/syncLead/NUo5VXowRTYwZU1xdHVmdUw1WlQvdz09';
-    let isStep1Complete = false;
+    const formInitTime = Date.now();
+    const MIN_SUBMISSION_TIME_MS = 3000; // 3 seconds threshold
+    const RATE_LIMIT_WINDOW_MS = 30000;  // 30 seconds cooldown
+    let isSubmitting = false;
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Get Fee & Free Demo Class →';
 
     async function sendLeadToCRM(payload) {
       try {
@@ -334,53 +354,87 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const nameVal = nameInput.value.trim();
-        const phoneVal = phoneInput.value.trim();
+        // 1. Submission Lock: Prevent duplicate / concurrent submissions
+        if (isSubmitting) return;
 
-        if (nameVal === '' || phoneVal.length < 10) {
-          alert('Please enter your full name and a valid 10-digit mobile number.');
+        // 2. Honeypot check: If filled, silently drop and simulate completion
+        if (honeypotInput && honeypotInput.value.trim() !== '') {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting Details...';
+          setTimeout(() => {
+            window.location.href = '/thank-you';
+          }, 800);
           return;
         }
 
-        if (!isStep1Complete) {
-          // Step 1: Send initial lead immediately to Concept Ninjas CRM
-          isStep1Complete = true;
+        // 3. Minimum interaction time check: Humans take > 3 seconds to complete the form
+        const elapsedTime = Date.now() - formInitTime;
+        if (elapsedTime < MIN_SUBMISSION_TIME_MS) {
           submitBtn.disabled = true;
-          submitBtn.textContent = 'Saving...';
+          submitBtn.textContent = 'Submitting Details...';
+          setTimeout(() => {
+            window.location.href = '/thank-you';
+          }, 1000);
+          return;
+        }
 
+        // 4. Client-side Rate Limiting (30s window per browser)
+        try {
+          const lastSubmission = localStorage.getItem('lead_form_last_submission');
+          if (lastSubmission && (Date.now() - parseInt(lastSubmission, 10)) < RATE_LIMIT_WINDOW_MS) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting Details...';
+            setTimeout(() => {
+              window.location.href = '/thank-you';
+            }, 600);
+            return;
+          }
+        } catch (storageErr) {
+          // localStorage disabled or unavailable; proceed gracefully
+        }
+
+        // 5. Input Validation
+        const nameVal = nameInput ? nameInput.value.trim().slice(0, 100) : '';
+        const rawPhone = phoneInput ? phoneInput.value.trim() : '';
+        const phoneDigits = rawPhone.replace(/\D/g, '');
+        const locVal = locationInput ? locationInput.value : 'Andheri';
+        const courseVal = courseInput ? courseInput.value : 'SAP FICO';
+
+        if (nameVal.length < 2 || phoneDigits.length < 10) {
+          alert('Please enter your full name (at least 2 characters) and a valid 10-digit mobile number.');
+          return;
+        }
+
+        // Lock form during submission
+        isSubmitting = true;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting Details...';
+
+        try {
           await sendLeadToCRM({
             name: nameVal,
             email: 'info@upgradeinfotech.com',
-            mobile: phoneVal,
-            course: 'SAP Course',
-            location: 'Andheri',
-            message: 'New lead from Upgrade Infotech Landing Page (Step 1)',
-            source: 'Upgrade Infotech Landing Page'
-          });
-
-          submitBtn.disabled = false;
-          step2.classList.remove('hidden');
-          submitBtn.textContent = 'Submit & Reserve Seat →';
-        } else {
-          // Step 2: Send complete details to CRM
-          const locVal = locationInput ? locationInput.value : 'Andheri';
-          const courseVal = courseInput ? courseInput.value : 'SAP FICO';
-
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Submitting Lead...';
-
-          await sendLeadToCRM({
-            name: nameVal,
-            email: 'info@upgradeinfotech.com',
-            mobile: phoneVal,
+            mobile: phoneDigits.slice(-10),
             course: courseVal,
             location: locVal,
             message: `New lead from Upgrade Infotech Landing Page (${courseVal} - ${locVal})`,
             source: 'Upgrade Infotech Landing Page'
           });
 
+          // Record last submission timestamp
+          try {
+            localStorage.setItem('lead_form_last_submission', Date.now().toString());
+          } catch (storageErr) {}
+
           // Redirect to Thank You page
           window.location.href = '/thank-you';
+        } catch (err) {
+          console.error('Submission failed:', err);
+          // Reset lock on failure
+          isSubmitting = false;
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+          alert('Something went wrong while submitting. Please try again or call us directly.');
         }
       });
     }

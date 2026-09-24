@@ -349,12 +349,12 @@ const infiniteRow2 = [...companiesRow2, ...companiesRow2, ...companiesRow2];
 
   <!-- 5. FINAL PRIMARY CTA DESTINATION (Visual Hierarchy Priority 5 - Ambient Halo & Focus) -->
   <div class="text-center relative z-10 pt-2">
-    <a
-      href="#enroll"
-      class="inline-flex items-center justify-center min-h-[50px] px-10 py-4 text-sm sm:text-base font-extrabold text-white bg-accent hover:bg-accent-hover active:bg-accent rounded-xl shadow-xl shadow-accent/25 transition-all transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer"
+    <button
+      type="button"
+      class="placement-popup-trigger inline-flex items-center justify-center min-h-[50px] px-10 py-4 text-sm sm:text-base font-extrabold text-white bg-accent hover:bg-accent-hover active:bg-accent rounded-xl shadow-xl shadow-accent/25 transition-all transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer group"
     >
-      See If You Qualify →
-    </a>
+      <span>See If You Qualify</span> <span class="ml-1.5 transition-transform group-hover:translate-x-1">→</span>
+    </button>
   </div>
 
 </section>
