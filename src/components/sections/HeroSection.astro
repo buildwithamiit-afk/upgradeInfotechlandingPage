@@ -117,23 +117,23 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
       <div class="lg:col-span-5 relative mt-4 lg:mt-0">
         
         <!-- Professional Form Card -->
-        <div id="enroll" class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-200 overflow-hidden relative transform transition-all duration-300 hover:shadow-[0_20px_40px_rgba(102,51,153,0.12)] hover:-translate-y-1">
+        <div id="enroll" class="bg-gradient-to-br from-primary to-accent sm:bg-none sm:bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-primary sm:border-slate-200 overflow-hidden relative transform transition-all duration-300 hover:shadow-[0_20px_40px_rgba(102,51,153,0.12)] hover:-translate-y-1">
           
           <!-- Top Accent Line -->
-          <div class="h-1.5 bg-gradient-to-r from-primary to-accent" aria-hidden="true"></div>
+          <div class="h-1.5 bg-white/30 sm:bg-gradient-to-r sm:from-primary sm:to-accent" aria-hidden="true"></div>
 
           <!-- Lead Form Body -->
           <div class="p-6 sm:p-8">
             <div class="flex items-start justify-between mb-4">
               <div>
-                <h2 class="text-xl sm:text-2xl font-black text-heading tracking-tight text-left flex items-center gap-2">
-                  <span class="text-primary text-xl">⚡</span> Free Career Roadmap
+                <h2 class="text-xl sm:text-2xl font-black text-white sm:text-heading tracking-tight text-left flex items-center gap-2">
+                  <span class="text-white sm:text-primary text-xl">⚡</span> Free Career Roadmap
                 </h2>
-                <p class="text-xs sm:text-sm text-body mt-1.5 text-left font-medium">
+                <p class="text-xs sm:text-sm text-white/90 sm:text-body mt-1.5 text-left font-medium">
                   Get fees, batch dates & eligibility structure in 30 mins.
                 </p>
               </div>
-              <span class="text-[10px] font-extrabold px-2.5 py-1 rounded-md bg-slate-100 text-slate-500 uppercase border border-slate-200 whitespace-nowrap shrink-0 mt-1">
+              <span class="text-[10px] font-extrabold px-2.5 py-1 rounded-md bg-white/20 sm:bg-slate-100 text-white sm:text-slate-500 uppercase border border-white/30 sm:border-slate-200 whitespace-nowrap shrink-0 mt-1">
                 Step 1 of 2
               </span>
             </div>
@@ -143,7 +143,7 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
               <div id="form-step-1" class="space-y-3">
                 <!-- Full Name Input -->
                 <div>
-                  <label for="hero-lead-name" class="block text-[11px] font-extrabold uppercase text-heading mb-1">
+                  <label for="hero-lead-name" class="block text-[11px] font-extrabold uppercase text-white sm:text-heading mb-1">
                     Full Name <span class="text-accent">*</span>
                   </label>
                   <input
@@ -152,13 +152,13 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
                     name="name"
                     required
                     placeholder="Enter your full name"
-                    class="w-full h-11 px-3.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading placeholder:text-slate-400"
+                    class="w-full h-11 px-3.5 rounded-xl border border-white/20 sm:border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-white sm:focus:ring-primary focus:border-white sm:focus:border-primary focus:outline-none transition-all bg-white text-heading placeholder:text-slate-400"
                   />
                 </div>
 
                 <!-- Mobile Number Input -->
                 <div>
-                  <label for="hero-lead-phone" class="block text-[11px] font-extrabold uppercase text-heading mb-1">
+                  <label for="hero-lead-phone" class="block text-[11px] font-extrabold uppercase text-white sm:text-heading mb-1">
                     Mobile Number <span class="text-accent">*</span>
                   </label>
                   <input
@@ -169,7 +169,7 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
                     pattern="[0-9]{10}"
                     maxlength="10"
                     placeholder="10-digit mobile number"
-                    class="w-full h-11 px-3.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading placeholder:text-slate-400"
+                    class="w-full h-11 px-3.5 rounded-xl border border-white/20 sm:border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-white sm:focus:ring-primary focus:border-white sm:focus:border-primary focus:outline-none transition-all bg-white text-heading placeholder:text-slate-400"
                   />
                 </div>
               </div>
@@ -177,13 +177,13 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
               <!-- Step 2 Fields: Location & Course (Progressive Disclosure) -->
               <div id="form-step-2" class="space-y-3 hidden">
                 <div>
-                  <label for="hero-lead-location" class="block text-[11px] font-extrabold uppercase text-heading mb-1">
+                  <label for="hero-lead-location" class="block text-[11px] font-extrabold uppercase text-white sm:text-heading mb-1">
                     Preferred Location
                   </label>
                   <select
                     id="hero-lead-location"
                     name="location"
-                    class="w-full h-11 px-3.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading cursor-pointer"
+                    class="w-full h-11 px-3.5 rounded-xl border border-white/20 sm:border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-white sm:focus:ring-primary focus:border-white sm:focus:border-primary focus:outline-none transition-all bg-white text-heading cursor-pointer"
                   >
                     <option value="andheri" selected>Andheri Classroom</option>
                     <option value="ghatkopar">Ghatkopar Classroom</option>
@@ -193,13 +193,13 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
                 </div>
 
                 <div>
-                  <label for="hero-lead-course" class="block text-[11px] font-extrabold uppercase text-heading mb-1">
+                  <label for="hero-lead-course" class="block text-[11px] font-extrabold uppercase text-white sm:text-heading mb-1">
                     Course Interested In
                   </label>
                   <select
                     id="hero-lead-course"
                     name="course"
-                    class="w-full h-11 px-3.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all bg-slate-50 text-heading cursor-pointer"
+                    class="w-full h-11 px-3.5 rounded-xl border border-white/20 sm:border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-white sm:focus:ring-primary focus:border-white sm:focus:border-primary focus:outline-none transition-all bg-white text-heading cursor-pointer"
                   >
                     <option value="sap-fico" selected>SAP FICO (Finance & Control)</option>
                     <option value="sap-mm">SAP MM (Materials Management)</option>
@@ -211,8 +211,8 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
               </div>
 
               <!-- Privacy Microcopy DIRECTLY ABOVE CTA BUTTON -->
-              <div class="flex items-center justify-center gap-1.5 text-[11px] text-primary font-bold bg-primary-light py-1.5 px-3 rounded-lg border border-primary/20">
-                <svg class="w-3.5 h-3.5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="flex items-center justify-center gap-1.5 text-[11px] text-white sm:text-primary font-bold bg-white/20 sm:bg-primary-light py-1.5 px-3 rounded-lg border border-white/30 sm:border-primary/20">
+                <svg class="w-3.5 h-3.5 text-white sm:text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                 </svg>
                 <span>100% Confidential · No Spam Calls · Call within 30 mins</span>
@@ -222,21 +222,21 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
               <button
                 type="submit"
                 id="hero-form-submit-btn"
-                class="w-full min-h-[44px] mt-1 px-4 py-2.5 text-sm font-bold text-white bg-primary hover:bg-primary-hover active:bg-primary rounded-lg shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer group flex items-center justify-center"
+                class="w-full min-h-[44px] mt-1 px-4 py-2.5 text-sm font-bold text-primary sm:text-white bg-white sm:bg-primary hover:bg-slate-100 sm:hover:bg-primary-hover active:bg-slate-200 sm:active:bg-primary rounded-lg shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-white sm:focus:ring-primary cursor-pointer group flex items-center justify-center"
               >
                 Get Fee & Free Demo Class <span class="ml-1 transition-transform group-hover:translate-x-0.5">→</span>
               </button>
             </form>
 
             <!-- Recruiter Logos Strip Directly Below Form (Continuous Slow Moving Marquee) -->
-            <div class="mt-4 pt-3.5 border-t border-slate-100">
-              <p class="text-[11px] font-black uppercase tracking-wider text-heading text-center mb-2.5">
+            <div class="mt-4 pt-3.5 border-t border-white/20 sm:border-slate-100">
+              <p class="text-[11px] font-black uppercase tracking-wider text-white sm:text-heading text-center mb-2.5">
                 Students Placed At Top Companies
               </p>
-              <div class="bg-slate-50/90 py-3 rounded-xl border border-slate-200/90 overflow-hidden relative">
+              <div class="bg-white sm:bg-slate-50/90 py-3 rounded-xl border border-white/20 sm:border-slate-200/90 overflow-hidden relative">
                 <!-- Edge Overlay Gradients for smooth fade -->
-                <div class="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
-                <div class="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
+                <div class="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-white sm:from-slate-50 to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
+                <div class="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-white sm:from-slate-50 to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
 
                 <!-- Slow Moving Continuous Marquee Track -->
                 <div class="animate-marquee flex items-center gap-6 sm:gap-8">
@@ -361,8 +361,6 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
           submitBtn.disabled = false;
           step2.classList.remove('hidden');
           submitBtn.textContent = 'Submit & Reserve Seat →';
-          submitBtn.classList.remove('bg-primary');
-          submitBtn.classList.add('bg-primary', 'hover:bg-primary-hover');
         } else {
           // Step 2: Send complete details to CRM
           const locVal = locationInput ? locationInput.value : 'Andheri';
