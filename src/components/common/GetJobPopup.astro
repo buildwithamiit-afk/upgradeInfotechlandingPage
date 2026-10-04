@@ -34,7 +34,7 @@
     <!-- Close Button -->
     <button
       id="get-job-close"
-      class="absolute top-3 right-3 z-20 bg-[#f46b14] hover:bg-[#d65a0d] text-white w-8 h-8 rounded-md flex items-center justify-center transition-colors focus:outline-none shadow-sm"
+      class="absolute top-3 right-3 z-20 bg-primary hover:bg-primary-hover text-white w-8 h-8 rounded-md flex items-center justify-center transition-colors focus:outline-none shadow-sm"
       aria-label="Close popup"
     >
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,8 +43,11 @@
     </button>
 
     <!-- Left Side: Image Poster -->
-    <div class="w-full md:w-1/2 bg-slate-50 relative overflow-hidden flex items-center justify-center h-40 sm:h-48 md:h-auto shrink-0 border-b md:border-b-0 md:border-r border-slate-100">
-      <img src="/getajobposter.png" alt="Get a Job Opportunities" class="w-full h-full object-contain md:object-cover p-2 md:p-0" />
+    <div class="w-full md:w-1/2 bg-slate-50 relative overflow-hidden flex items-center justify-center shrink-0 border-b md:border-b-0 md:border-r border-slate-100">
+      <picture class="w-full h-full">
+        <source media="(max-width: 767px)" srcset="/getjobpostermobilevew.png" />
+        <img src="/getajobposter.png" alt="Get a Job Opportunities" class="w-full h-full object-contain md:object-cover p-2 md:p-0" />
+      </picture>
     </div>
 
     <!-- Right Side: Form -->
@@ -52,7 +55,7 @@
       <div class="flex justify-center mb-4">
         <img src="/main_logo.png" alt="Upgrade Infotech Logo" class="h-9 sm:h-11 w-auto object-contain" />
       </div>
-      <h3 id="get-job-title" class="text-2xl font-black text-[#f46b14] text-center mb-6">
+      <h3 id="get-job-title" class="text-2xl font-black text-primary text-center mb-6">
         Request Callback
       </h3>
 
@@ -72,7 +75,7 @@
           <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg>
           </div>
-          <input type="text" id="getjob-name" required placeholder="Enter Full Name" class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#f46b14]/30 focus:border-[#f46b14] outline-none transition-all text-slate-800" />
+          <input type="text" id="getjob-name" required placeholder="Enter Full Name" class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-slate-800" />
         </div>
 
         <!-- Email -->
@@ -80,7 +83,7 @@
           <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
           </div>
-          <input type="email" id="getjob-email" required placeholder="Enter Your Email" class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#f46b14]/30 focus:border-[#f46b14] outline-none transition-all text-slate-800" />
+          <input type="email" id="getjob-email" required placeholder="Enter Your Email" class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-slate-800" />
         </div>
 
         <!-- Phone -->
@@ -88,7 +91,7 @@
           <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
           </div>
-          <input type="tel" id="getjob-phone" required pattern="[0-9]{10}" maxlength="10" placeholder="Contact Number" class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#f46b14]/30 focus:border-[#f46b14] outline-none transition-all text-slate-800" />
+          <input type="tel" id="getjob-phone" required pattern="[0-9]{10}" maxlength="10" placeholder="Contact Number" class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-slate-800" />
         </div>
 
         <!-- City / Graduation Year -->
@@ -96,7 +99,7 @@
           <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd" /></svg>
           </div>
-          <input type="text" id="getjob-city-year" required placeholder="Enter City / Graduation Year" class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#f46b14]/30 focus:border-[#f46b14] outline-none transition-all text-slate-800" />
+          <input type="text" id="getjob-city-year" required placeholder="Enter City / Graduation Year" class="w-full h-12 pl-11 pr-4 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-slate-800" />
         </div>
 
         <!-- Branch -->
@@ -104,7 +107,7 @@
           <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.221 4.624 1 1 0 01-.89.89 8.969 8.969 0 00-6.721 1.662z" /></svg>
           </div>
-          <select id="getjob-branch" required class="w-full h-12 pl-11 pr-10 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#f46b14]/30 focus:border-[#f46b14] outline-none transition-all text-slate-800 appearance-none bg-white cursor-pointer invalid:text-slate-500" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20stroke%3D%22%2364748b%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2010%2013%2014%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.2em;">
+          <select id="getjob-branch" required class="w-full h-12 pl-11 pr-10 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-slate-800 appearance-none bg-white cursor-pointer invalid:text-slate-500" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20stroke%3D%22%2364748b%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2010%2013%2014%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.2em;">
             <option value="" disabled selected>Choose Branch</option>
             <option value="Andheri">Andheri</option>
             <option value="Ghatkopar">Ghatkopar</option>
@@ -116,7 +119,7 @@
         <button
           type="submit"
           id="getjob-submit-btn"
-          class="w-full h-12 mt-6 flex justify-center items-center rounded-full font-black text-white text-base tracking-wide bg-gradient-to-r from-[#e35907] to-[#f46b14] hover:from-[#d65a0d] hover:to-[#e35907] transition-all shadow-md focus:outline-none hover:shadow-lg transform hover:-translate-y-0.5"
+          class="w-full h-12 mt-6 flex justify-center items-center rounded-full font-black text-white text-base tracking-wide bg-gradient-to-r from-primary to-accent hover:from-primary-hover hover:to-accent-hover transition-all shadow-md focus:outline-none hover:shadow-lg transform hover:-translate-y-0.5"
         >
           Talk to Our Counsellor
         </button>
