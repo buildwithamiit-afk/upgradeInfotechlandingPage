@@ -154,16 +154,7 @@
           return;
         }
 
-        // 3. Minimum interaction time check: Humans take > 3 seconds to complete the form
-        const elapsedTime = Date.now() - modalOpenTime;
-        if (elapsedTime < MIN_SUBMISSION_TIME_MS) {
-          exitSubmitBtn.disabled = true;
-          exitSubmitBtn.textContent = 'Sending...';
-          setTimeout(() => {
-            window.location.href = '/thank-you';
-          }, 1000);
-          return;
-        }
+        // 3. Minimum interaction time check removed for speed
 
         // 4. Client-side Rate Limiting (30s window per browser)
         try {
@@ -193,26 +184,29 @@
         exitSubmitBtn.textContent = 'Sending...';
 
         try {
-          await fetch('https://dashboard.conceptninjas.com/services/web/syncLead/NUo5VXowRTYwZU1xdHVmdUw1WlQvdz09', {
+          const res = await fetch('/api/lead', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               name: nameVal,
-              email: 'info@upgradeinfotech.com',
-              mobile: phoneDigits.slice(-10),
-              course: 'SAP Course Syllabus PDF',
-              location: 'Andheri',
-              message: 'Exit Intent Brochure Download Lead',
-              source: 'Exit Intent Popup'
+              phone: phoneDigits,
+              course: 'SAP Course Syllabus PDF', // default value
+              location: 'Andheri', // default value
+              source: 'Exit Intent Form'
             })
           });
 
-          try {
-            localStorage.setItem('lead_form_last_submission', Date.now().toString());
-          } catch (storageErr) {}
+          const data = await res.json();
 
-          // Redirect to Thank You page
-          window.location.href = '/thank-you';
+          if (res.ok && data.success) {
+            try { localStorage.setItem('lead_form_last_submission', Date.now().toString()); } catch (err) {}
+            window.location.href = data.redirect || '/thank-you';
+          } else {
+            alert(data.error || 'Submission failed. Please try again.');
+            isSubmitting = false;
+            exitSubmitBtn.disabled = false;
+            exitSubmitBtn.textContent = originalBtnText;
+          }
         } catch (err) {
           console.error('Submission failed:', err);
           isSubmitting = false;

@@ -338,12 +338,20 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
 
     async function sendLeadToCRM(payload) {
       try {
-        const res = await fetch(CRM_API_URL, {
+        const res = await fetch('/api/lead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          body: JSON.stringify({
+            name: payload.name,
+            phone: payload.mobile,
+            course: payload.course,
+            location: payload.location,
+            source: payload.source
+          })
         });
-        return res.ok;
+        
+        const data = await res.json();
+        return res.ok && data.success;
       } catch (err) {
         console.error('CRM sync error:', err);
         return false;
@@ -367,16 +375,7 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
           return;
         }
 
-        // 3. Minimum interaction time check: Humans take > 3 seconds to complete the form
-        const elapsedTime = Date.now() - formInitTime;
-        if (elapsedTime < MIN_SUBMISSION_TIME_MS) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Submitting Details...';
-          setTimeout(() => {
-            window.location.href = '/thank-you';
-          }, 1000);
-          return;
-        }
+        // 3. Minimum interaction time check removed for speed
 
         // 4. Client-side Rate Limiting (30s window per browser)
         try {
@@ -411,23 +410,29 @@ const infiniteRecruiterLogos = [...recruiterLogos, ...recruiterLogos, ...recruit
         submitBtn.textContent = 'Submitting Details...';
 
         try {
-          await sendLeadToCRM({
+          const isSuccess = await sendLeadToCRM({
             name: nameVal,
-            email: 'info@upgradeinfotech.com',
-            mobile: phoneDigits.slice(-10),
+            mobile: phoneDigits,
             course: courseVal,
             location: locVal,
-            message: `New lead from Upgrade Infotech Landing Page (${courseVal} - ${locVal})`,
-            source: 'Upgrade Infotech Landing Page'
+            source: 'Hero Form'
           });
 
-          // Record last submission timestamp
-          try {
-            localStorage.setItem('lead_form_last_submission', Date.now().toString());
-          } catch (storageErr) {}
+          if (isSuccess) {
+            // Record last submission timestamp
+            try {
+              localStorage.setItem('lead_form_last_submission', Date.now().toString());
+            } catch (storageErr) {}
 
-          // Redirect to Thank You page
-          window.location.href = '/thank-you';
+            // Redirect to Thank You page
+            window.location.href = '/thank-you';
+          } else {
+            // Reset lock on failure
+            isSubmitting = false;
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+            alert('Something went wrong while submitting. Please try again or call us directly.');
+          }
         } catch (err) {
           console.error('Submission failed:', err);
           // Reset lock on failure
